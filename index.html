@@ -359,7 +359,7 @@ html[lang=ar] em{font-style:normal}
 html[lang=ar] h1,html[lang=ar] .h2,html[lang=ar] .card h3,html[lang=ar] .final h2,html[lang=ar] .opt-t,html[lang=ar] .deb-q,html[lang=ar] #lit,html[lang=ar] .ep h3{line-height:1.35}
 html[lang=ar] .hero h1{font-size:clamp(3rem,7vw,6.4rem)}
 html[lang=ar] .hero h1 .line{padding-bottom:.12em}
-html[lang=ar] .acc{display:none !important}
+.acc{display:none !important}
 html[lang=ar] .gahwa{font-style:normal}
 .brand span,.def-word,.ep .big,.thumb strong,.cov{font-family:'Cormorant Infant','Cormorant Garamond',Georgia,serif}
 .def{border-left:0;padding-left:0;border-inline-start:1px solid var(--gold);padding-inline-start:30px}
@@ -367,6 +367,7 @@ html[dir=rtl] .card .go::after{content:"←"}
 html[dir=rtl] .card:hover .go::after{transform:translateX(-6px)}
 html[dir=rtl] .rail-ctrl{direction:ltr}
 html[dir=rtl] .ep .big{right:auto;left:-6%}
+html[lang=ar] .ep .big{font-family:var(--arabic);font-style:normal;font-weight:200}
 
 </style>
 <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
@@ -543,7 +544,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
     </div>
       </div>
       <div class="hero-row">
-        <a class="hr-card" href="#debate" data-to="debate"><span class="hr-k"><i class="dot"></i><span data-i18n="otK">Current topic</span></span><span class="hr-q" data-i18n="dQ">Over the next ten years, which would you rather own?</span><span class="split"><b class="sa"></b></span><span class="hr-meta"><span><span data-i18n="dA">Real estate</span> <em id="pa"></em></span><span><em id="pb"></em> <span data-i18n="dB">Public equities</span></span></span><span class="hr-go" id="otGo"></span></a>
+        <a class="hr-card" href="#debate" data-to="debate"><span class="hr-k"><i class="dot"></i><span data-i18n="otK">Current topic</span></span><span class="hr-q" data-i18n="dQ">Over the next ten years, which would you rather own?</span><span class="split"><b class="sa"></b></span><span class="hr-meta"><span><span data-i18n="dA">Real estate</span></span><span><span data-i18n="dB">Public equities</span></span></span></a>
         <a class="hr-card hr-ep" href="#episodes" data-to="episodes"><span class="hr-thumb"><span class="big">D</span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="hr-body"><span class="hr-k"><i class="dot live"></i><span data-i18n="upK">Up next · EP 01</span></span><span class="hr-t" data-i18n="e1">Dubai property: 2008 vs today</span><span class="hr-m" data-i18n="upM">12 min · Premieres this month</span></span></a>
       </div>
     </div>
@@ -641,12 +642,12 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
       <div class="rail-ctrl reveal d2"><button type="button" id="prev" aria-label="Previous">←</button><button type="button" id="next" aria-label="Next">→</button></div>
     </div>
     <div class="rail" id="rail">
-      <article class="ep"><div class="art"><span class="big">D</span><span class="tag" data-i18n="tMkt">Markets</span><h3><span data-i18n="e1">Dubai property: 2008 vs today</span><span class="ar acc">عقارات دبي: بين 2008 واليوم</span></h3></div><div class="meta"><span data-i18n="ep1">Ep. 01</span><span>EN · AR</span></div></article>
-      <article class="ep"><div class="art"><span class="big">%</span><span class="tag" data-i18n="tFund">Fundamentals</span><h3><span data-i18n="e2">IRR: what it tells you, and what it hides</span><span class="ar acc">معدل العائد الداخلي: ما يكشفه وما يخفيه</span></h3></div><div class="meta"><span data-i18n="ep2">Ep. 02</span><span>EN · AR</span></div></article>
-      <article class="ep"><div class="art"><span class="big">PE</span><span class="tag" data-i18n="tExp">Explainer</span><h3><span data-i18n="e3">Private equity, explained</span><span class="ar acc">الملكية الخاصة ببساطة</span></h3></div><div class="meta"><span data-i18n="ep3">Ep. 03</span><span>EN · AR</span></div></article>
-      <article class="ep"><div class="art"><span class="big">S</span><span class="tag" data-i18n="tIf">Islamic finance</span><h3><span data-i18n="e4">Sukuk vs bonds</span><span class="ar acc">الصكوك مقابل السندات</span></h3></div><div class="meta"><span data-i18n="ep4">Ep. 04</span><span>EN · AR</span></div></article>
-      <article class="ep"><div class="art"><span class="big">PC</span><span class="tag" data-i18n="tExp2">Explainer</span><h3><span data-i18n="e5">What is private credit?</span><span class="ar acc">ما هو الائتمان الخاص؟</span></h3></div><div class="meta"><span data-i18n="ep5">Ep. 05</span><span>EN · AR</span></div></article>
-      <article class="ep"><div class="art"><span class="big">D</span><span class="tag" data-i18n="tPod">Diwaniya · Podcast</span><h3><span data-i18n="e6">Inside a family office</span><span class="ar acc">داخل المكتب العائلي</span></h3></div><div class="meta"><span data-i18n="epPod">Podcast</span><span data-i18n="soon">Coming soon</span></div></article>
+      <article class="ep"><div class="art"><span class="big" data-i18n="bg1">D</span><span class="tag" data-i18n="tMkt">Markets</span><h3><span data-i18n="e1">Dubai property: 2008 vs today</span></h3></div><div class="meta"><span data-i18n="ep1">Ep. 01</span></div></article>
+      <article class="ep"><div class="art"><span class="big" data-i18n="bg2">%</span><span class="tag" data-i18n="tFund">Fundamentals</span><h3><span data-i18n="e2">IRR: what it tells you, and what it hides</span></h3></div><div class="meta"><span data-i18n="ep2">Ep. 02</span></div></article>
+      <article class="ep"><div class="art"><span class="big" data-i18n="bg3">PE</span><span class="tag" data-i18n="tExp">Explainer</span><h3><span data-i18n="e3">Private equity, explained</span></h3></div><div class="meta"><span data-i18n="ep3">Ep. 03</span></div></article>
+      <article class="ep"><div class="art"><span class="big" data-i18n="bg4">S</span><span class="tag" data-i18n="tIf">Islamic finance</span><h3><span data-i18n="e4">Sukuk vs bonds</span></h3></div><div class="meta"><span data-i18n="ep4">Ep. 04</span></div></article>
+      <article class="ep"><div class="art"><span class="big" data-i18n="bg5">PC</span><span class="tag" data-i18n="tExp2">Explainer</span><h3><span data-i18n="e5">What is private credit?</span></h3></div><div class="meta"><span data-i18n="ep5">Ep. 05</span></div></article>
+      <article class="ep"><div class="art"><span class="big" data-i18n="bg6">D</span><span class="tag" data-i18n="tPod">Diwaniya · Podcast</span><h3><span data-i18n="e6">Inside a family office</span></h3></div><div class="meta"><span data-i18n="epPod">Podcast</span><span data-i18n="soon">Coming soon</span></div></article>
     </div>
   </section>
 
@@ -696,33 +697,33 @@ const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 
 // ===== i18n =====
 const AR = {
-  nav1:'المحتوى', nav2:'الموضوع الحالي', nav3:'القادم', nav4:'عنّا', navCta:'اشترك', sn1:'١', sn2:'٢', sn3:'٣', sn4:'٤',
+  nav1:'المحتوى', nav2:'الموضوع الحالي', nav3:'القادم', nav4:'عنّا', navCta:'اشترك', bg1:'د', bg2:'٪', bg3:'م', bg4:'ص', bg5:'ا', bg6:'د', sn1:'١', sn2:'٢', sn3:'٣', sn4:'٤',
   heroK:'الاستثمار · الصفقات · الاستراتيجية', h1a:'مرحبا!', h1b:'خلّ نتكلم عن البزنس.',
   heroSub:'منصة حديثة للنقاش في الاستثمار والصفقات والأعمال.',
   ctaWatch:'شاهد الشروحات', ctaNews:'اشترك في النشرة', ctaWatch2:'شاهد الشروحات', ctaNews2:'اشترك في النشرة',
-  defType:'اسم', defP:'<ol class="senses"><li>مكان يجتمع فيه الناس للسوالف وتبادل العلوم والآراء، مثل المجلس.</li><li>سجل الحسابات. أول الدواوين كانت تسجّل الإيرادات والعطايا.</li><li>مجموعة أعمال في مكان واحد، مثل ديوان الشاعر.</li></ol>',
-  lit:'<span class="g">ألفا ديوان يجمع المعاني الثلاثة</span> في منصة رقمية وحدة: مجلس نسولف فيه عن الأسواق والبزنس، وسجل للأرقام اللي تهمّ، ومجموعة تكبر من الشروحات والحوارات والأدوات.',
-  fK:'المحتوى', fH:'اختار <em class="gold-text">مكانك.</em>', fP:'شوف الشروحات، أو اسمع السوالف الطويلة، أو اقرأ الرسائل مع قهوة الصبح. على راحتك.',
+  defType:'اسم', defP:'<ol class="senses"><li>مكان يجتمع فيه الناس للسوالف وتبادل العلوم والآراء، وهو المجلس.</li><li>سجل الحسابات. أول الدواوين كانت تمسك دفاتر الإيرادات والرواتب.</li><li>مجموعة أعمال في مجلّد واحد، مثل ديوان الشاعر.</li></ol>',
+  lit:'<span class="g">ألفا ديوان يجمع المعاني الثلاثة</span> في منصة رقمية واحدة: مجلس نسولف فيه عن الأسواق والبزنس، وسجل للأرقام المهمّة، ومجموعة من الشروحات والحوارات والأدوات.',
+  fK:'المحتوى', fH:'اختار <em class="gold-text">مقعدك.</em>', fP:'شوف الشروحات، أو اسمع السوالف الطويلة، أو اقرأ الرسائل مع قهوة الصبح. على راحتك.',
   sYt:'يوتيوب', ytH:'الشروحات', ytP:'موضوع واحد في كل حلقة، نشرحه ببساطة في حوالي ١٢ دقيقة. أسواق وصفقات والأفكار اللي وراها.', ytGo:'اشترك على يوتيوب',
-  sPod:'في 2027', podH:'الديوانية', podP:'بودكاستنا، على اسم جلسات المساء. سوالف طويلة ورايقة مع مستثمرين ومؤسسين وناس جرّبوا بنفسهم.',
-  sNews:'دورية', newsH:'رسائل', newsP:'اشترك واستلم رسائلنا الدورية: صفقة الكل يتكلم عنها، ورسم يستاهل تحفظه، وفكرة تفكّر فيها.',
-  sTpl:'قريباً', tplH:'الأدوات', tplP:'جداول وعروض تقديمية ونماذج مالية تساعد الشباب في عالم المالية والاستثمار. ومعها شروحات عملية، مثل بناء نموذج التدفقات النقدية المخصومة خطوة بخطوة، أو تمارين على حساب العائد الداخلي.', tplGo:'أعلمني عند الإطلاق',
+  sPod:'في ٢٠٢٧', podH:'الديوانية', podP:'بودكاستنا، على اسم جلسات المساء. سوالف طويلة ورايقة مع مستثمرين ومؤسسين وناس جرّبوا بنفسهم.',
+  sNews:'دورية', newsH:'الرسائل', newsP:'اشترك واستلم رسائلنا الدورية: صفقة الكل يتكلم عنها، ورسم بياني يستاهل تحفظه، وفكرة تفكّر فيها.',
+  sTpl:'قريباً', tplH:'الأدوات', tplP:'جداول وعروض تقديمية ونماذج مالية للشغل في المالية والاستثمار، مصمّمة للشباب في بداية مشوارهم. ومعها شروحات عملية، مثل بناء نموذج التدفقات النقدية المخصومة خطوة بخطوة، أو تمارين على معدل العائد الداخلي.', tplGo:'نبّهني عند الإطلاق',
   socH:'التواصل الاجتماعي', socP:'لقطات سريعة طول الأسبوع، لما يكون عندك دقيقة.',
   dK:'الموضوع الحالي', dH:'سؤال <em>هالأسبوع.</em>', dQ:'خلال العشر سنين الجاية، وش تفضّل تملك؟',
-  dA:'العقار', dAc:'شي تشوفه وتلمسه، وإيجار يدخل كل شهر، وتقدر تموّل عليه.', dB:'الأسهم المدرجة', dBc:'سهلة البيع والشراء، موزّعة على شركات كثيرة، وتكبر بهدوء مع السنين.',
-  vs:'أم', dNote:'الكل له صوت. اختار جهة وشوف وين يميل المجلس.',
+  dA:'العقار', dAc:'شي تشوفه وتلمسه، وإيجار يدخل كل شهر، وتقدر تقترض بضمانه.', dB:'الأسهم المدرجة', dBc:'سهلة البيع والشراء، موزّعة على شركات كثيرة، وتكبر بهدوء مع السنين.',
+  vs:'ولا', dNote:'الكل له صوت. اختار طرف وشوف وين يميل المجلس.',
   eK:'القادم', eH:'المواضيع <em class="gold-text">اللي نناقشها.</em>',
   tMkt:'الأسواق', tFund:'أساسيات', tExp:'شرح', tExp2:'شرح', tIf:'تمويل إسلامي', tPod:'الديوانية · بودكاست',
-  e1:'عقارات دبي: بين 2008 واليوم', e2:'معدل العائد الداخلي: ما يكشفه وما يخفيه', e3:'الملكية الخاصة ببساطة', e4:'الصكوك مقابل السندات', e5:'ما هو الائتمان الخاص؟', e6:'داخل المكتب العائلي',
-  ep1:'الحلقة 01', ep2:'الحلقة 02', ep3:'الحلقة 03', ep4:'الحلقة 04', ep5:'الحلقة 05', epPod:'بودكاست', soon:'قريباً',
+  e1:'عقارات دبي: بين ٢٠٠٨ واليوم', e2:'معدل العائد الداخلي: وش يبيّن ووش يخفي', e3:'الملكية الخاصة ببساطة', e4:'الصكوك مقابل السندات', e5:'وش هو الائتمان الخاص؟', e6:'داخل المكتب العائلي',
+  ep1:'الحلقة ٠١', ep2:'الحلقة ٠٢', ep3:'الحلقة ٠٣', ep4:'الحلقة ٠٤', ep5:'الحلقة ٠٥', epPod:'بودكاست', soon:'قريباً',
   aK:'أهل الديوان', aH:'لكل ديوانٍ <em class="gold-text">أهله.</em>',
   aP:'أهل ديواننا قضوا سنين في أسواق المنطقة. نخلّي الكلام واضح وصريح ومفتوح لكل الآراء، ودايماً نرجع للأساسيات إذا احتجت.',
   cH:'حيّاكم <em class="gold-text">في أي وقت.</em>',
   nv1k:'٠١', nv1:'صفقة واحدة', nv2k:'٠٢', nv2:'رسم بياني واحد', nv3k:'٠٣', nv3:'فكرة واحدة',
   badge:'أسواق · صفقات · بزنس · أسواق · صفقات · بزنس · ',
-  th1:'الأسواق', th1t:'عقارات دبي: 2008 واليوم', th2:'شرح', th2t:'الملكية الخاصة ببساطة', th3:'أساسيات', th3t:'العائد الداخلي ببساطة',
+  th1:'الأسواق', th1t:'عقارات دبي: بين ٢٠٠٨ واليوم', th2:'شرح', th2t:'الملكية الخاصة ببساطة', th3:'أساسيات', th3t:'العائد الداخلي ببساطة',
   cv1:'عرض للمستثمرين', cv2:'التدفقات المخصومة خطوة بخطوة', cv3:'تمارين العائد الداخلي', shorts:'شورتس', copy:'ألفا ديوان',
-  otK:'الموضوع الحالي', upK:'الحلقة القادمة · ٠١', upM:'١٢ دقيقة · تُعرض هذا الشهر',
+  otK:'الموضوع الحالي', upK:'الحلقة القادمة · ٠١', upM:'١٢ دقيقة · تنزل هالشهر',
   legal:'تنشر ألفا ديوان محتوى تعليمياً فقط، ولا يُعدّ أي شيء في هذا الموقع أو في الفيديوهات أو البودكاست أو النشرة أو النماذج نصيحةً استثمارية أو قانونية أو ضريبية.'
 };
 const MARQ = [
@@ -736,7 +737,7 @@ const MARQ = [
 ];
 const NOTES = {
   en:{none:'Everyone gets a vote. Pick a side and see where the room leans.', a:'You picked real estate. Good arguments on both sides, and we dig into it in our next newsletter.', b:'You picked public equities. Good arguments on both sides, and we dig into it in our next newsletter.'},
-  ar:{none:'الكل له صوت. اختار جهة وشوف وين يميل المجلس.', a:'اخترت العقار. الطرفين عندهم حجّة، ونتعمّق فيها في رسالتنا الجاية.', b:'اخترت الأسهم المدرجة. الطرفين عندهم حجّة، ونتعمّق فيها في رسالتنا الجاية.'}
+  ar:{none:'الكل له صوت. اختار طرف وشوف وين يميل المجلس.', a:'اخترت العقار. الطرفين عندهم حجّة، ونتعمّق فيها في رسالتنا الجاية.', b:'اخترت الأسهم المدرجة. الطرفين عندهم حجّة، ونتعمّق فيها في رسالتنا الجاية.'}
 };
 const EN = {};
 document.querySelectorAll('[data-i18n]').forEach(el => EN[el.dataset.i18n] = el.innerHTML);
@@ -757,7 +758,7 @@ function setLang(l){
 document.getElementById('langBtn').addEventListener('click', () => setLang(lang === 'ar' ? 'en' : 'ar'));
 
 function buildMarquee(){
-  const one = MARQ.map(([c, en, ar]) => `<span class="tk"><b>${c}</b><i>${lang === 'ar' ? ar : en}</i></span><span class="d">◆</span>`).join('');
+  const one = MARQ.map(([c, en, ar]) => `<span class="tk">${lang === 'ar' ? '' : `<b>${c}</b>`}<i>${lang === 'ar' ? ar : en}</i></span><span class="d">◆</span>`).join('');
   document.getElementById('marquee').innerHTML = one + one;
 }
 
@@ -840,7 +841,6 @@ const opts = document.querySelectorAll('.opt'), debNote = document.getElementByI
 function updateDebNote(){
   let t = NOTES[lang][pick || 'none'];
   const n = typeof tally !== 'undefined' && tally ? tally.a + tally.b : 0;
-  if (pick && n > 0) t += lang === 'ar' ? ` · ${n.toLocaleString('ar-EG')} ${n === 1 ? 'صوت' : 'صوتاً'}` : ` · ${n.toLocaleString()} ${n === 1 ? 'vote' : 'votes'}`;
   (debNote.querySelector('[data-i18n="dNote"]') || debNote).textContent = t;
 }
 // one vote per visitor (IP checked server-side); the poll id follows the week's question, so a new question resets the count
@@ -886,9 +886,6 @@ function updStrip(){
   const t = tally || {a: 0, b: 0}, n = t.a + t.b, show = n > 0, pa = show ? Math.round(t.a / n * 100) : 50;
   const f = v => lang === 'ar' ? v.toLocaleString('ar-EG') + '٪' : v + '%';
   sa.style.width = pa + '%';
-  document.getElementById('pa').textContent = show ? f(pa) : '';
-  document.getElementById('pb').textContent = show ? f(100 - pa) : '';
-  document.getElementById('otGo').textContent = show ? (lang === 'ar' ? `${n.toLocaleString('ar-EG')} ${n === 1 ? 'صوت' : 'صوتاً'} لحد الحين · ${pick ? 'شوف النتيجة' : 'أضف صوتك'} ←` : `${n.toLocaleString('en-US')} ${n === 1 ? 'vote' : 'votes'} so far · ${pick ? 'See results' : 'Add yours'} →`) : (lang === 'ar' ? 'كن أول من يصوّت ←' : 'Be the first to vote →');
 }
 function issueLine(){
   const el = document.getElementById('issueK'); if (!el) return;
