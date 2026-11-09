@@ -381,6 +381,29 @@ html[dir=rtl] .hero-sadu-h{right:0;left:30px;-webkit-mask-image:linear-gradient(
 .c-news:hover .cov:nth-child(2){transform:translateY(-16px)}
 .c-news:hover .cov:nth-child(3){transform:rotate(12deg) translate(12px,-6px)}
 html[dir=rtl] .fan{direction:ltr}
+
+/* poll results */
+.opt-res{display:flex;align-items:center;gap:14px;width:100%;max-height:0;opacity:0;overflow:hidden;transition:max-height .6s var(--ease),opacity .6s,margin .6s}
+.voted .opt-res{max-height:40px;opacity:1;margin-top:10px}
+.opt-bar{flex:1;height:6px;border-radius:6px;background:rgba(245,240,230,.14);overflow:hidden}
+.opt-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold-mute),var(--gold-soft));border-radius:6px;transition:width 1.4s var(--ease) .2s}
+.opt-pct{font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1;color:var(--gold-soft);min-width:2.6em;text-align:end}
+.opt.picked .opt-k::after{content:"✓";position:absolute;font-size:.75rem}
+.opt.picked .opt-k{position:relative;color:transparent}
+.opt.picked .opt-k::after{color:var(--deep)}
+.voted .opt{cursor:default}
+.voted .opt:hover{transform:none}
+/* majlis arch behind the mark */
+.hero-arch{position:absolute;z-index:0;pointer-events:none;left:var(--ax,72%);top:var(--ay,10%);width:var(--aw,320px);height:var(--ah,480px);transform:translateX(-50%);opacity:0;animation:archIn 2.4s .4s forwards;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.hero-arch svg{width:100%;height:100%;overflow:visible}
+.hero-arch .a1{fill:url(#archGlow);stroke:rgba(207,169,96,.42);stroke-width:1}
+.hero-arch .a2{fill:none;stroke:rgba(207,169,96,.2);stroke-width:1}
+.hero-arch .a3{fill:none;stroke:rgba(207,169,96,.12);stroke-width:1;stroke-dasharray:2 6}
+.hero-arch .kd{fill:var(--gold);opacity:.7}
+.hero-arch path{vector-effect:non-scaling-stroke}
+@media(max-width:900px){.hero-arch{opacity:0;animation:fadeHalf 2.4s .4s forwards}}
+@keyframes fadeHalf{to{opacity:.6}}
+@keyframes archIn{to{opacity:1}}
 /* trading ticker */
 .marquee{padding:0;height:40px;display:flex;align-items:center;background:var(--abyss);border-top:1px solid rgba(207,169,96,.28);border-bottom:1px solid rgba(207,169,96,.28)}
 .marquee .track{animation:slide 80s linear infinite;align-items:center}
@@ -403,7 +426,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
   <div class="wrap nav-inner">
     <a href="#top" class="brand" aria-label="Alpha Diwan home"><svg class="mark" viewBox="0 0 1503.0 1615.0"><use href="#ad-mark"/></svg><i></i><span>alpha diwan</span></a>
     <nav class="links" aria-label="Primary">
-      <a href="#channels" data-i18n="nav1">Formats</a><a href="#debate" data-i18n="nav2">The Debate</a><a href="#episodes" data-i18n="nav3">Episodes</a><a href="#about" data-i18n="nav4">About</a>
+      <a href="#debate" data-i18n="nav2">The Debate</a><a href="#channels" data-i18n="nav1">Formats</a><a href="#episodes" data-i18n="nav3">Episodes</a><a href="#about" data-i18n="nav4">About</a>
     </nav>
     <div class="nav-right">
       <button class="lang" id="langBtn" type="button" aria-label="Switch language">عربي</button>
@@ -415,6 +438,11 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
 <main id="top">
   <!-- HERO -->
   <section class="hero grain">
+    <div class="hero-arch" aria-hidden="true"><svg viewBox="0 0 200 300" preserveAspectRatio="none"><defs><radialGradient id="archGlow" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#1D4A3C" stop-opacity=".55"/><stop offset="1" stop-color="#0A2B22" stop-opacity="0"/></radialGradient></defs>
+      <path class="a3" d="M-8,300 V128 C-8,52 52,14 100,-12 C148,14 208,52 208,128 V300"/>
+      <path class="a1" d="M6,300 V132 C6,62 58,28 100,4 C142,28 194,62 194,132 V300"/>
+      <path class="a2" d="M18,300 V136 C18,72 64,42 100,20 C136,42 182,72 182,136 V300"/>
+      <rect class="kd" x="96.5" y="-6.5" width="7" height="7" transform="rotate(45 100 -3)"/></svg></div>
     <canvas id="field" aria-hidden="true"></canvas>
     <div class="hero-sadu" aria-hidden="true"></div><div class="hero-sadu-h" aria-hidden="true"></div>
     <div class="wrap hero-inner">
@@ -445,6 +473,23 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
         <p data-i18n="defP">A forum for counsel and debate. The room where ideas are challenged, decisions are shaped and deals are agreed.</p>
       </div>
       <p id="lit" data-i18n="lit">For generations, the diwan has been the Gulf's forum for <span class="g">debate</span>, counsel and decision-making. Alpha Diwan carries that tradition into the age of <span class="g">modern capital.</span></p>
+    </div>
+  </section>
+
+  <!-- DEBATE (light) -->
+  <section id="debate" class="debate">
+    <div class="wrap">
+      <div class="deb-head">
+        <span class="kicker reveal" data-i18n="dK">The debate</span>
+        <h2 class="h2 reveal d1" data-i18n="dH">This week <em>in the diwan.</em></h2>
+      </div>
+      <div class="deb-q reveal d2" data-i18n="dQ">Over the next ten years, which would you rather own?</div>
+      <div class="deb-opts reveal d3" id="debOpts">
+        <button type="button" class="opt" data-v="a"><span class="opt-k">A</span><span class="opt-t" data-i18n="dA">Real estate</span><span class="opt-case" data-i18n="dAc">Tangible assets, rental income and the power of leverage.</span><span class="opt-res" aria-live="polite"><span class="opt-bar"><i></i></span><b class="opt-pct">0%</b></span></button>
+        <span class="vs" data-i18n="vs">or</span>
+        <button type="button" class="opt" data-v="b"><span class="opt-k">B</span><span class="opt-t" data-i18n="dB">Public equities</span><span class="opt-case" data-i18n="dBc">Liquidity, diversification and long-term compounding.</span><span class="opt-res" aria-live="polite"><span class="opt-bar"><i></i></span><b class="opt-pct">0%</b></span></button>
+      </div>
+      <p class="deb-note reveal d4" id="debNote" data-i18n="dNote">Pick a side to see where the room stands.</p>
     </div>
   </section>
 
@@ -496,22 +541,6 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
     </div>
   </section>
 
-  <!-- DEBATE (light) -->
-  <section id="debate" class="debate">
-    <div class="wrap">
-      <div class="deb-head">
-        <span class="kicker reveal" data-i18n="dK">The debate</span>
-        <h2 class="h2 reveal d1" data-i18n="dH">This week <em>in the diwan.</em></h2>
-      </div>
-      <div class="deb-q reveal d2" data-i18n="dQ">Over the next ten years, which would you rather own?</div>
-      <div class="deb-opts reveal d3" id="debOpts">
-        <button type="button" class="opt" data-v="a"><span class="opt-k">A</span><span class="opt-t" data-i18n="dA">Real estate</span><span class="opt-case" data-i18n="dAc">Tangible assets, rental income and the power of leverage.</span></button>
-        <span class="vs" data-i18n="vs">or</span>
-        <button type="button" class="opt" data-v="b"><span class="opt-k">B</span><span class="opt-t" data-i18n="dB">Public equities</span><span class="opt-case" data-i18n="dBc">Liquidity, diversification and long-term compounding.</span></button>
-      </div>
-      <p class="deb-note reveal d4" id="debNote" data-i18n="dNote">Pick a side to see the case for each.</p>
-    </div>
-  </section>
 
   <div class="sadu" role="presentation"></div>
 
@@ -591,7 +620,7 @@ const AR = {
   socH:'التواصل الاجتماعي', socP:'أبرز الأفكار بصيغة مختصرة، طوال الأسبوع.',
   dK:'نقاش الأسبوع', dH:'على طاولة <em>الديوان.</em>', dQ:'خلال السنوات العشر القادمة، أيّهما تفضّل أن تملك؟',
   dA:'العقار', dAc:'أصول ملموسة، ودخل إيجاري، وقوة الرافعة المالية.', dB:'الأسهم المدرجة', dBc:'سيولة، وتنويع، ونمو تراكمي على المدى الطويل.',
-  vs:'أم', dNote:'اختر موقفك لترى حجّة كل طرف.',
+  vs:'أم', dNote:'اختر موقفك لترى رأي الحضور.',
   eK:'على جدول الأعمال', eH:'الحلقات <em class="gold-text">القادمة.</em>',
   tMkt:'الأسواق', tFund:'أساسيات', tExp:'شرح', tExp2:'شرح', tIf:'تمويل إسلامي', tPod:'ديوانية · بودكاست',
   e1:'عقارات دبي: بين 2008 واليوم', e2:'معدل العائد الداخلي: ما يكشفه وما يخفيه', e3:'الملكية الخاصة ببساطة', e4:'الصكوك مقابل السندات', e5:'ما هو الائتمان الخاص؟', e6:'داخل المكتب العائلي',
@@ -613,8 +642,8 @@ const MARQ = [
   ['VAL','Valuation','التقييم']
 ];
 const NOTES = {
-  en:{none:'Pick a side to see the case for each.', a:'Noted: real estate. Both sides have a case. We take this debate apart in the newsletter.', b:'Noted: public equities. Both sides have a case. We take this debate apart in the newsletter.'},
-  ar:{none:'اختر موقفك لترى حجّة كل طرف.', a:'اخترت العقار. لكل طرف حجّته، ونفصّل هذا النقاش في النشرة.', b:'اخترت الأسهم المدرجة. لكل طرف حجّته، ونفصّل هذا النقاش في النشرة.'}
+  en:{none:'Pick a side to see where the room stands.', a:'You chose real estate. Both sides have a case; we take this debate apart in the newsletter.', b:'You chose public equities. Both sides have a case; we take this debate apart in the newsletter.'},
+  ar:{none:'اختر موقفك لترى رأي الحضور.', a:'اخترت العقار. لكل طرف حجّته، ونفصّل هذا النقاش في النشرة.', b:'اخترت الأسهم المدرجة. لكل طرف حجّته، ونفصّل هذا النقاش في النشرة.'}
 };
 const EN = {};
 document.querySelectorAll('[data-i18n]').forEach(el => EN[el.dataset.i18n] = el.innerHTML);
@@ -715,13 +744,44 @@ if (fine && !reduce) document.querySelectorAll('.mag').forEach(b => {
 
 // debate
 const opts = document.querySelectorAll('.opt'), debNote = document.getElementById('debNote'); let pick = null;
-function updateDebNote(){ debNote.textContent = NOTES[lang][pick || 'none']; }
+function updateDebNote(){
+  let t = NOTES[lang][pick || 'none'];
+  const n = typeof tally !== 'undefined' && tally ? tally.a + tally.b : 0;
+  if (pick && n >= 10) t += lang === 'ar' ? ` · ${n.toLocaleString('ar-EG')} صوتاً` : ` · ${n.toLocaleString()} votes`;
+  debNote.textContent = t;
+}
+// one vote per visitor (IP checked server-side); the poll id follows the week's question, so a new question resets the count
+const POLL = (() => { let h = 0; for (const c of EN.dQ || '') h = (h * 31 + c.charCodeAt(0)) | 0; return 'q' + (h >>> 0).toString(36); })();
+let tally = null;
+function showResults(){
+  if (!pick) return;
+  const box = document.getElementById('debOpts'); box.classList.add('voted');
+  opts.forEach(x => x.classList.toggle('picked', x.dataset.v === pick));
+  const t = tally || {a: 0, b: 0}, n = t.a + t.b;
+  opts.forEach(x => {
+    const pct = n ? Math.round(t[x.dataset.v] / n * 100) : (x.dataset.v === pick ? 100 : 0);
+    x.querySelector('.opt-bar i').style.width = pct + '%';
+    x.querySelector('.opt-pct').textContent = (lang === 'ar' ? pct.toLocaleString('ar-EG') + '٪' : pct + '%');
+  });
+  updateDebNote();
+}
+async function poll(method, v){
+  try {
+    const r = await fetch('/api/vote?poll=' + POLL, method === 'POST' ? {method, headers: {'content-type': 'application/json'}, body: JSON.stringify({v})} : {});
+    if (!r.ok) throw 0; const d = await r.json(); tally = {a: d.a, b: d.b};
+    if (d.mine){ pick = d.mine; try { localStorage.setItem('ad-vote-' + POLL, pick); } catch(e){} }
+  } catch(e){}
+  showResults();
+}
+try { pick = localStorage.getItem('ad-vote-' + POLL); } catch(e){}
+poll('GET');
 opts.forEach(o => o.addEventListener('click', () => {
+  if (pick) return;
   pick = o.dataset.v;
-  document.getElementById('debOpts').classList.add('voted');
-  opts.forEach(x => x.classList.toggle('picked', x === o));
-  updateDebNote(); burst(o);
+  try { localStorage.setItem('ad-vote-' + POLL, pick); } catch(e){}
+  showResults(); burst(o); poll('POST', pick);
 }));
+addEventListener('langchange', showResults);
 function burst(el){
   if (reduce) return;
   const r = el.getBoundingClientRect();
@@ -760,6 +820,8 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     const s = (wide ? Math.min(W * .36, H * .7) : Math.min(W * .5, H * .24)) / vb[3];
     const mw = vb[2] * s, mh = vb[3] * s;
     const cx = wide ? W * (rtl ? .28 : .72) : W / 2, cy = wide ? H * .52 : H * .22;
+    const ah = mh * 1.6, aw = ah * 2 / 3, st = hero.style;
+    st.setProperty('--ax', cx + 'px'); st.setProperty('--ay', (cy - mh * .82) + 'px'); st.setProperty('--aw', aw + 'px'); st.setProperty('--ah', ah + 'px');
     return {s, ox: cx - mw / 2, oy: cy - mh / 2, cx, cy};
   }
   function markPoints(){
