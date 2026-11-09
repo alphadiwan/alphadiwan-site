@@ -366,7 +366,11 @@ html[dir=rtl] .ep .big{right:auto;left:-6%}
 
 </style>
 <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
-<style>.bh-embed{position:relative;z-index:1;margin-top:18px;min-height:60px}.bh-embed,.bh-embed iframe{color-scheme:light}.bh-embed iframe{max-width:100%;border:0;background:transparent!important}</style>
+<style>.bh-embed{position:relative;z-index:1;margin-top:18px;min-height:60px}.bh-embed,.bh-embed iframe{color-scheme:light}.bh-embed iframe{max-width:100%;border:0;background:transparent!important}.hero-sadu{position:absolute;top:0;bottom:0;right:0;width:30px;z-index:1;pointer-events:none;background-image:var(--sadu-v);background-repeat:repeat-y;background-size:30px auto;opacity:.6;-webkit-mask-image:linear-gradient(transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(transparent,#000 18%,#000 82%,transparent);animation:weaveV 50s linear infinite}
+@keyframes weaveV{to{background-position:0 600px}}
+html[dir=rtl] .hero-sadu{right:auto;left:0}
+@media(max-width:900px){.hero-sadu{width:16px;background-size:16px auto;opacity:.45}}
+</style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -391,6 +395,7 @@ html[dir=rtl] .ep .big{right:auto;left:-6%}
   <!-- HERO -->
   <section class="hero grain">
     <canvas id="field" aria-hidden="true"></canvas>
+    <div class="hero-sadu" aria-hidden="true"></div>
     <div class="wrap hero-inner">
       <span class="kicker hero-k" data-i18n="heroK">Investing · Deals · Strategy</span>
       <h1><span class="line"><span data-i18n="h1a">The diwan,</span></span><span class="line"><span><em class="gold-text" data-i18n="h1b">reimagined.</em></span></span></h1>
@@ -715,44 +720,86 @@ addEventListener('pointermove', e => { if (down) rail.scrollLeft = sl - (e.clien
 
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-// ===== HERO PARTICLE FIELD =====
+// ===== HERO PARTICLE FIELD: gold dust that morphs mark -> ديوان -> rising chart =====
 (function(){
   const cv = document.getElementById('field'), ctx = cv.getContext('2d');
   const d = document.getElementById('mark-path').getAttribute('d');
   const vb = document.querySelector('#ad-mark').getAttribute('viewBox').split(/\s+/).map(Number);
-  let W, H, dpr, parts = [], mouse = {x:-9999, y:-9999}, t0 = performance.now(), raf;
-  function targets(){
+  const hero = cv.parentElement;
+  let scatterUntil = 0, W, H, dpr, parts = [], shapes = [], shapeIdx = 0, lastSwitch = 0, mouse = {x:-9999, y:-9999}, t0 = performance.now(), raf, fontReady = false;
+  const HOLD = [6500, 4200, 4200]; // ms on mark, word, chart
+
+  function box(){
     const wide = W >= 900, rtl = document.documentElement.dir === 'rtl';
     const s = (wide ? Math.min(W * .36, H * .7) : Math.min(W * .5, H * .24)) / vb[3];
     const mw = vb[2] * s, mh = vb[3] * s;
-    const ox = (wide ? W * (rtl ? .28 : .72) : W / 2) - mw / 2, oy = (wide ? H * .52 : H * .22) - mh / 2;
+    const cx = wide ? W * (rtl ? .28 : .72) : W / 2, cy = wide ? H * .52 : H * .22;
+    return {s, mw, mh, cx, cy, ox: cx - mw / 2, oy: cy - mh / 2, wide};
+  }
+  function sample(draw){
     const off = document.createElement('canvas'); off.width = W; off.height = H;
-    const o = off.getContext('2d');
-    o.setTransform(s, 0, 0, s, ox - vb[0] * s, oy - vb[1] * s);
-    o.fill(new Path2D(d), 'evenodd');
+    const o = off.getContext('2d'); o.fillStyle = '#000'; o.strokeStyle = '#000';
+    draw(o);
     const img = o.getImageData(0, 0, W, H).data, pts = [];
     const gap = Math.max(4, Math.round(Math.min(W, H) / 160));
     for (let y = 0; y < H; y += gap) for (let x = 0; x < W; x += gap) if (img[(y * W + x) * 4 + 3] > 128) pts.push([x + (Math.random() - .5) * gap * .6, y + (Math.random() - .5) * gap * .6]);
+    for (let i = pts.length - 1; i > 0; i--){ const k = Math.random() * (i + 1) | 0; [pts[i], pts[k]] = [pts[k], pts[i]]; }
     return pts;
+  }
+  function buildShapes(){
+    const b = box();
+    const mark = sample(o => { o.setTransform(b.s, 0, 0, b.s, b.ox - vb[0] * b.s, b.oy - vb[1] * b.s); o.fill(new Path2D(d), 'evenodd'); });
+    const list = [mark];
+    if (fontReady){
+      list.push(sample(o => {
+        const maxW = b.wide ? Math.min(W * .4, b.mw * 1.7) : W * .8;
+        let fs = b.mh * .62; o.font = `700 ${fs}px Amiri, 'Noto Naskh Arabic', serif`;
+        const w = o.measureText('ديوان').width; if (w > maxW){ fs *= maxW / w; o.font = `700 ${fs}px Amiri, 'Noto Naskh Arabic', serif`; }
+        o.textAlign = 'center'; o.textBaseline = 'middle'; o.direction = 'rtl';
+        o.fillText('ديوان', b.cx, b.cy);
+      }));
+    }
+    list.push(sample(o => {
+      const w = b.wide ? Math.min(W * .3, b.mw * 1.25) : W * .72, h = b.mh * .72;
+      const x0 = b.cx - w / 2 + (b.wide ? W * .02 * (document.documentElement.dir === 'rtl' ? -1 : 1) : 0), y0 = b.cy - h / 2;
+      const P = [[0,.92],[.16,.66],[.3,.76],[.48,.44],[.62,.54],[.8,.2],[1,0]].map(([x,y]) => [x0 + x * w, y0 + y * h]);
+      o.lineWidth = Math.max(8, b.mh * .045); o.lineJoin = 'round'; o.lineCap = 'round';
+      o.beginPath(); P.forEach(([x,y], i) => i ? o.lineTo(x,y) : o.moveTo(x,y)); o.stroke();
+      P.forEach(([x,y]) => { o.beginPath(); o.arc(x, y, o.lineWidth * 1.05, 0, 6.283); o.fill(); });
+    }));
+    return list;
+  }
+  function assign(){
+    const pts = shapes[shapeIdx];
+    parts.forEach((p, i) => { if (!p.home) return; const q = pts[i % pts.length]; p.tx = q[0] + (Math.random() - .5) * 2; p.ty = q[1] + (Math.random() - .5) * 2; });
   }
   function init(keep){
     dpr = Math.min(devicePixelRatio || 1, 2);
     W = cv.clientWidth; H = cv.clientHeight;
     cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const pts = targets(), ambient = Math.round((W * H) / 9000);
+    shapes = buildShapes(); if (shapeIdx >= shapes.length) shapeIdx = 0;
+    const n = shapes[0].length, ambient = Math.round((W * H) / 9000);
     const old = keep ? parts.filter(p => p.home) : [];
-    parts = pts.map((p, i) => { const o = old[i % (old.length || 1)]; return {x: o ? o.x : Math.random() * W, y: o ? o.y : Math.random() * H, tx: p[0], ty: p[1], vx: 0, vy: 0, r: Math.random() * 1.2 + .6, a: Math.random() * .5 + .5, ph: Math.random() * 6.28, home: true}; });
+    parts = [];
+    for (let i = 0; i < n; i++){ const o = old[i % (old.length || 1)]; parts.push({x: o ? o.x : Math.random() * W, y: o ? o.y : Math.random() * H, tx: 0, ty: 0, vx: 0, vy: 0, r: Math.random() * 1.2 + .6, a: Math.random() * .5 + .5, ph: Math.random() * 6.28, home: true}); }
     for (let i = 0; i < ambient; i++) parts.push({x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .15, vy: -Math.random() * .25 - .05, r: Math.random() * 1.1 + .3, a: Math.random() * .35 + .08, ph: Math.random() * 6.28, home: false});
-    t0 = performance.now();
-    if (reduce) { parts.forEach(p => { if (p.home){ p.x = p.tx; p.y = p.ty; } }); draw(0); }
+    assign();
+    if (!keep) t0 = performance.now();
+    lastSwitch = performance.now();
+    if (reduce) { parts.forEach(p => { if (p.home){ p.x = p.tx; p.y = p.ty; } }); draw(performance.now()); }
+  }
+  function morph(next){
+    shapeIdx = next; assign(); lastSwitch = performance.now();
+    parts.forEach(p => { if (p.home){ p.vx += (Math.random() - .5) * 6; p.vy += (Math.random() - .5) * 6; } });
   }
   function draw(t){
     ctx.clearRect(0, 0, W, H);
-    const k = Math.min(1, (t - t0) / 2600), ease = 1 - Math.pow(1 - k, 3);
+    if (!reduce && shapes.length > 1 && t - lastSwitch > HOLD[shapeIdx] ) morph((shapeIdx + 1) % shapes.length);
+    const k = Math.min(1, (t - t0) / 2600), ease = 1 - Math.pow(1 - k, 3), sc = t < scatterUntil, pull = sc ? .006 : .012 + ease * .05, damp = sc ? .94 : .86;
     for (const p of parts){
       if (p.home){
-        const ax = (p.tx + Math.sin(t / 900 + p.ph) * 1.2 - p.x) * (.012 + ease * .05), ay = (p.ty + Math.cos(t / 1100 + p.ph) * 1.2 - p.y) * (.012 + ease * .05);
-        p.vx = (p.vx + ax) * .86; p.vy = (p.vy + ay) * .86;
+        p.vx = (p.vx + (p.tx + Math.sin(t / 900 + p.ph) * 1.2 - p.x) * pull) * damp;
+        p.vy = (p.vy + (p.ty + Math.cos(t / 1100 + p.ph) * 1.2 - p.y) * pull) * damp;
       } else if (p.y < -5) { p.y = H + 5; p.x = Math.random() * W; }
       const dx = p.x - mouse.x, dy = p.y - mouse.y, dist = dx * dx + dy * dy, R = 110;
       if (dist < R * R){ const m = Math.sqrt(dist) || 1, f = (1 - m / R) * 3.2; p.vx += dx / m * f; p.vy += dy / m * f; }
@@ -766,13 +813,25 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     ctx.globalAlpha = 1;
     if (!reduce) raf = requestAnimationFrame(draw);
   }
-  const hero = cv.parentElement;
+  // click to scatter (ignores clicks on buttons/links)
+  hero.addEventListener('click', e => {
+    if (reduce || e.target.closest('a,button')) return;
+    const r = cv.getBoundingClientRect(), cx = e.clientX - r.left, cy = e.clientY - r.top;
+    for (const p of parts){
+      const dx = p.x - cx, dy = p.y - cy, m = Math.hypot(dx, dy) || 1, f = 22 * Math.exp(-m / 380) + 3;
+      p.vx += dx / m * f + (Math.random() - .5) * 4; p.vy += dy / m * f + (Math.random() - .5) * 4;
+    }
+    scatterUntil = performance.now() + 900; lastSwitch = performance.now(); // hold the current shape a little longer after a scatter
+  });
   hero.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
   hero.addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
-  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { cancelAnimationFrame(raf); init(); if (!reduce) raf = requestAnimationFrame(draw); }, 200); });
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { cancelAnimationFrame(raf); init(true); if (!reduce) raf = requestAnimationFrame(draw); }, 200); });
   addEventListener('langchange', () => { cancelAnimationFrame(raf); init(true); if (!reduce) raf = requestAnimationFrame(draw); });
   new IntersectionObserver(([e]) => { cancelAnimationFrame(raf); if (e.isIntersecting && !reduce) raf = requestAnimationFrame(draw); }).observe(hero);
   init();
+  // add the Arabic word shape once Amiri has loaded (falls back to a system Arabic font after 2.5 s)
+  const addWord = () => { if (fontReady) return; fontReady = true; shapes = buildShapes(); };
+  if (document.fonts && document.fonts.load){ document.fonts.load("700 80px Amiri", 'ديوان').then(addWord, addWord); setTimeout(addWord, 2500); } else addWord();
 })();
 
 // initial language
