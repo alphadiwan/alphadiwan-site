@@ -230,6 +230,7 @@ section{position:relative;padding:130px 0}
 .rail-ctrl button:hover{background:rgba(207,169,96,.15)}
 .rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px max(32px,calc((100vw - 1240px)/2 + 32px)) 30px;scrollbar-width:none;cursor:grab}
 .rail::-webkit-scrollbar{display:none}
+.rail{scroll-padding-inline:max(32px,calc((100vw - 1240px)/2 + 32px))}
 .rail.drag{cursor:grabbing;scroll-snap-type:none}
 .ep{flex:0 0 min(78vw,400px);scroll-snap-align:start;user-select:none}
 .ep .art{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;padding:26px;display:flex;flex-direction:column;justify-content:space-between;
@@ -433,9 +434,9 @@ html[dir=rtl] .ep .big{right:auto;left:-6%}
         <a class="card c-yt reveal" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener">
           <div class="top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/></svg></span><span class="status live" data-i18n="sYt">YouTube</span></div>
           <div class="thumbs" aria-hidden="true">
-            <div class="thumb t1"><span class="play"></span><small>Breakdown</small><strong>How Emaar built a city</strong></div>
+            <div class="thumb t1"><span class="play"></span><small>Breakdown</small><strong>How Emaar built Dubai</strong></div>
             <div class="thumb t2"><span class="play"></span><small>Explainer</small><strong>Private equity, explained</strong></div>
-            <div class="thumb t3"><span class="play"></span><small>Business model</small><strong>IKEA, decoded</strong></div>
+            <div class="thumb t3"><span class="play"></span><small>Islamic finance</small><strong>Sukuk vs bonds</strong></div>
           </div>
           <div><h3><em data-i18n="ytH">Explainers</em></h3><p data-i18n="ytP">In-depth analyses of companies, deals and asset classes, published weekly on YouTube.</p><span class="go" data-i18n="ytGo">Subscribe on YouTube</span></div>
         </a>
@@ -495,11 +496,11 @@ html[dir=rtl] .ep .big{right:auto;left:-6%}
       <div class="rail-ctrl reveal d2"><button type="button" id="prev" aria-label="Previous">←</button><button type="button" id="next" aria-label="Next">→</button></div>
     </div>
     <div class="rail" id="rail">
-      <article class="ep"><div class="art"><span class="big">E</span><span class="tag" data-i18n="tBreak">Breakdown</span><h3><span data-i18n="e1">How Emaar built a city</span><span class="ar acc">كيف بنت إعمار مدينة</span></h3></div><div class="meta"><span data-i18n="ep1">Ep. 01</span><span>EN · AR</span></div></article>
+      <article class="ep"><div class="art"><span class="big">E</span><span class="tag" data-i18n="tBreak">Breakdown</span><h3><span data-i18n="e1">How Emaar built Dubai</span><span class="ar acc">كيف بنت إعمار دبي</span></h3></div><div class="meta"><span data-i18n="ep1">Ep. 01</span><span>EN · AR</span></div></article>
       <article class="ep"><div class="art"><span class="big">PE</span><span class="tag" data-i18n="tExp">Explainer</span><h3><span data-i18n="e2">Private equity, explained</span><span class="ar acc">الملكية الخاصة ببساطة</span></h3></div><div class="meta"><span data-i18n="ep2">Ep. 02</span><span>EN · AR</span></div></article>
-      <article class="ep"><div class="art"><span class="big">I</span><span class="tag" data-i18n="tBm">Business model</span><h3><span data-i18n="e3">IKEA's empire, decoded</span><span class="ar acc">إمبراطورية ايكيا</span></h3></div><div class="meta"><span data-i18n="ep3">Ep. 03</span><span>EN · AR</span></div></article>
+      <article class="ep"><div class="art"><span class="big">S</span><span class="tag" data-i18n="tIf">Islamic finance</span><h3><span data-i18n="e3">Sukuk vs bonds</span><span class="ar acc">الصكوك مقابل السندات</span></h3></div><div class="meta"><span data-i18n="ep3">Ep. 03</span><span>EN · AR</span></div></article>
       <article class="ep"><div class="art"><span class="big">PC</span><span class="tag" data-i18n="tExp2">Explainer</span><h3><span data-i18n="e4">What is private credit?</span><span class="ar acc">ما هو الائتمان الخاص؟</span></h3></div><div class="meta"><span data-i18n="ep4">Ep. 04</span><span>EN · AR</span></div></article>
-      <article class="ep"><div class="art"><span class="big">S</span><span class="tag" data-i18n="tIf">Islamic finance</span><h3><span data-i18n="e5">Sukuk vs bonds</span><span class="ar acc">الصكوك مقابل السندات</span></h3></div><div class="meta"><span data-i18n="ep5">Ep. 05</span><span>EN · AR</span></div></article>
+      <article class="ep"><div class="art"><span class="big">IC</span><span class="tag" data-i18n="tBreak2">Breakdown</span><h3><span data-i18n="e5">Inside Investcorp</span><span class="ar acc">داخل إنفستكورب</span></h3></div><div class="meta"><span data-i18n="ep5">Ep. 05</span><span>EN · AR</span></div></article>
       <article class="ep"><div class="art"><span class="big">D</span><span class="tag" data-i18n="tPod">Diwaniya · Podcast</span><h3><span data-i18n="e6">Inside a family office</span><span class="ar acc">داخل المكتب العائلي</span></h3></div><div class="meta"><span data-i18n="epPod">Podcast</span><span data-i18n="soon">Coming soon</span></div></article>
     </div>
   </section>
@@ -566,8 +567,8 @@ const AR = {
   dA:'العقار', dAc:'أصول ملموسة، ودخل إيجاري، وقوة الرافعة المالية.', dB:'الأسهم المدرجة', dBc:'سيولة، وتنويع، ونمو تراكمي على المدى الطويل.',
   vs:'أم', dNote:'اختر موقفك لترى حجّة كل طرف.',
   eK:'على جدول الأعمال', eH:'الحلقات <em class="gold-text">القادمة.</em>',
-  tBreak:'تحليل', tExp:'شرح', tExp2:'شرح', tBm:'نموذج عمل', tIf:'تمويل إسلامي', tPod:'ديوانية · بودكاست',
-  e1:'كيف بنت إعمار مدينة', e2:'الملكية الخاصة ببساطة', e3:'إمبراطورية ايكيا', e4:'ما هو الائتمان الخاص؟', e5:'الصكوك مقابل السندات', e6:'داخل المكتب العائلي',
+  tBreak:'تحليل', tBreak2:'تحليل', tExp:'شرح', tExp2:'شرح', tIf:'تمويل إسلامي', tPod:'ديوانية · بودكاست',
+  e1:'كيف بنت إعمار دبي', e2:'الملكية الخاصة ببساطة', e3:'الصكوك مقابل السندات', e4:'ما هو الائتمان الخاص؟', e5:'داخل إنفستكورب', e6:'داخل المكتب العائلي',
   ep1:'الحلقة 01', ep2:'الحلقة 02', ep3:'الحلقة 03', ep4:'الحلقة 04', ep5:'الحلقة 05', epPod:'بودكاست', soon:'قريباً',
   aK:'من وراء الديوان', aH:'من <em class="gold-text">أهل الخبرة.</em>',
   aP:'يقود ألفا ديوان مختصون في الاستثمار بخبرة مؤسسية في دول الخليج. كل تحليل وحلقة ونموذج مبنيّ على تجربة فعلية في صفقات حقيقية، لا على النظريات.',
