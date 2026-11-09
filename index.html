@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alpha Diwan — The diwan, reimagined</title>
-<meta name="description" content="Alpha Diwan is a modern forum for investing, deals and business strategy, across YouTube, podcast, newsletter and templates. In English and Arabic.">
+<title>Alpha Diwan — Let's talk markets &amp; business</title>
+<meta name="description" content="Alpha Diwan is a modern forum for investing, deals and business: explainers, a weekly letter, conversations and a toolkit for young professionals in the Gulf.">
 <link rel="canonical" href="https://alphadiwan.com/">
-<meta property="og:title" content="Alpha Diwan — The diwan, reimagined">
-<meta property="og:description" content="A modern forum for investing, deals and business strategy. In English and Arabic.">
+<meta property="og:title" content="Alpha Diwan — Let's talk markets &amp; business">
+<meta property="og:description" content="A modern forum for investing, deals and business.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alphadiwan.com/">
 <meta name="twitter:card" content="summary_large_image">
@@ -137,6 +137,10 @@ section{position:relative;padding:130px 0}
 .def-word .ar{font-style:normal;font-size:.7em;color:var(--ivory-dim)}
 .def-type{margin-top:10px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-mute)}
 .def p{margin:18px 0 0;max-width:38ch;color:var(--ivory-dim);font-size:1.02rem;line-height:1.7}
+.senses{margin:18px 0 0;padding:0;list-style:none;counter-reset:s;max-width:40ch;color:var(--ivory-dim);font-size:1rem;line-height:1.6}
+.senses li{counter-increment:s;display:grid;grid-template-columns:1.6em 1fr;gap:4px;margin-top:10px}
+.senses li::before{content:counter(s);font-family:var(--serif);font-style:italic;color:var(--gold-soft);font-size:1.1rem;line-height:1.45}
+html[lang=ar] .senses li::before{content:counter(s, arabic-indic);font-style:normal}
 #lit{margin:0;max-width:22ch;font-family:var(--serif);font-weight:300;font-size:clamp(2rem,3.8vw,3.4rem);line-height:1.08;letter-spacing:-.02em}
 #lit .w{opacity:.14;transition:opacity .25s, color .25s}
 #lit .w.lit{opacity:1}
@@ -515,7 +519,6 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
     <canvas id="field" aria-hidden="true"></canvas>
     <div class="hero-sadu" aria-hidden="true"></div><div class="hero-sadu-h" aria-hidden="true"></div>
     <div class="wrap hero-inner">
-      <span class="kicker hero-k" id="issueK">Issue 01</span>
       <h1><span class="line"><span data-i18n="h1a">Marhaba!</span></span><span class="line"><span><em class="gold-text" data-i18n="h1b">Let's talk markets &amp; business.</em></span></span></h1>
       <p class="sub" data-i18n="heroSub">A modern forum for investing, deals and business.</p>
       <div class="hero-cta">
@@ -543,7 +546,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
       <div class="def reveal">
         <div class="def-word">dī·wān <span class="ar">ديوان</span></div>
         <div class="def-type" data-i18n="defType">noun</div>
-        <p data-i18n="defP">The room in a Gulf home where guests gather. Someone pours the coffee, someone brings the news, and everyone has an opinion.</p>
+        <div data-i18n="defP"><ol class="senses"><li>A place to gather, talk and trade news. A majlis.</li><li>A register of accounts. The first diwans kept the books on revenue and pay.</li><li>A collected body of work, as in a poet's diwan.</li></ol></div>
       </div>
       <p id="lit" data-i18n="lit">In the Gulf, the diwan is where people gather to talk, share news and learn from each other. <span class="g">Alpha Diwan is the modern version:</span> discussions, explainers, tools and resources on money and markets, <span class="g">all a tap away.</span></p>
     </div>
@@ -562,7 +565,6 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
         <span class="vs" data-i18n="vs">or</span>
         <button type="button" class="opt" data-v="b"><span class="opt-k">B</span><span class="opt-t" data-i18n="dB">Public equities</span><span class="opt-case" data-i18n="dBc">Easy to buy and sell, spread across many companies, and quietly growing over the years.</span><span class="opt-res" aria-live="polite"><span class="opt-bar"><i></i></span><b class="opt-pct">0%</b></span></button>
       </div>
-      <div class="room reveal d4" id="room" aria-hidden="true"><svg viewBox="0 0 640 250"></svg><div class="room-lab"><span><span data-i18n="dA">Real estate</span> <b id="rA"></b></span><span><b id="rB"></b> <span data-i18n="dB">Public equities</span></span></div></div>
       <p class="deb-note reveal d4" id="debNote"><svg class="finjan" viewBox="0 0 40 32" aria-hidden="true"><path d="M6 6h28l-3.2 15.5A7 7 0 0 1 24 27h-8a7 7 0 0 1-6.8-5.5z"/><path d="M4 30h32" /></svg><span data-i18n="dNote">Everyone gets a vote. Pick a side and see where the room leans.</span></p>
     </div>
   </section>
@@ -592,13 +594,13 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
         <div class="card c-news reveal" id="news">
           <div class="top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span class="status" data-i18n="sNews">Weekly</span></div>
           <div class="fan" aria-hidden="true"><div class="cov"><span class="k" data-i18n="nv1k">One</span><span data-i18n="nv1">Transaction</span></div><div class="cov"><svg class="sl" viewBox="0 0 100 34"><polyline points="0,28 14,24 26,26 40,17 54,20 68,10 82,13 100,3" fill="none" stroke="#B4443B" stroke-width="1.6"/><circle cx="100" cy="3" r="2.4" fill="#D9756D"/></svg><span class="k" data-i18n="nv2k">One</span><span data-i18n="nv2">Chart</span></div><div class="cov"><span class="k" data-i18n="nv3k">One</span><span data-i18n="nv3">Insight</span></div></div>
-          <div><h3><em data-i18n="newsH">The guest book</em></h3><p data-i18n="newsP">Leave your email and we'll send one letter a week: a deal everyone's talking about, a chart worth saving and one idea to think over.</p>
+          <div><h3><em data-i18n="newsH">Weekly letter</em></h3><p data-i18n="newsP">Leave your email and we'll send one letter a week: a deal everyone's talking about, a chart worth saving and one idea to think over.</p>
           <div class="bh-embed"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="6b6e51e0-d9ef-43e9-9145-2294936391e1"></script></div></div>
         </div>
         <a class="card c-tpl reveal d1" id="tpl" href="#" data-store-link>
           <div class="top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 10v10"/></svg></span><span class="status" data-i18n="sTpl">Launching soon</span></div>
           <div class="fan" aria-hidden="true"><div class="cov" data-i18n="cv1">Pitch Deck</div><div class="cov" data-i18n="cv2">DCF, Step by Step</div><div class="cov" data-i18n="cv3">IRR Exercises</div></div>
-          <div><h3><em data-i18n="tplH">The toolkit</em></h3><p data-i18n="tplP">Spreadsheets, pitch decks and models for finance and investment work, made for young professionals. Plus hands-on tutorials, like building a DCF step by step or working through IRR exercises.</p><span class="go" data-i18n="tplGo">Get notified</span></div>
+          <div><h3><em data-i18n="tplH">Toolkit</em></h3><p data-i18n="tplP">Spreadsheets, pitch decks and models for finance and investment work, made for young professionals. Plus hands-on tutorials, like building a DCF step by step or working through IRR exercises.</p><span class="go" data-i18n="tplGo">Get notified</span></div>
         </a>
         <div class="card c-soc reveal">
           <div class="txt"><div class="top" style="justify-content:flex-start;gap:16px"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.2 10.8 7.6-3.6M8.2 13.2l7.6 3.6"/></svg></span><span class="status live">@alphadiwan</span></div>
@@ -684,12 +686,12 @@ const AR = {
   heroK:'الاستثمار · الصفقات · الاستراتيجية', h1a:'مرحبا!', h1b:'خلّنا نسولف عن الأسواق والبزنس.',
   heroSub:'منصة حديثة للنقاش في الاستثمار والصفقات والأعمال.',
   ctaWatch:'شاهد على يوتيوب', ctaNews:'اشترك في النشرة', ctaWatch2:'شاهد على يوتيوب', ctaNews2:'اشترك في النشرة',
-  defType:'اسم', defP:'المجلس اللي يجتمع فيه الضيوف. واحد يصبّ القهوة، وواحد يجيب العلوم، والكل عنده رأي.',
+  defType:'اسم', defP:'<ol class="senses"><li>مكان يجتمع فيه الناس للسوالف وتبادل العلوم والآراء، مثل المجلس.</li><li>سجل الحسابات. أول الدواوين كانت تسجّل الإيرادات والعطايا.</li><li>مجموعة أعمال في مكان واحد، مثل ديوان الشاعر.</li></ol>',
   lit:'في الخليج، الديوان هو المكان اللي يجتمع فيه الناس يسولفون ويتبادلون العلوم ويتعلّمون من بعض. <span class="g">وألفا ديوان هو الديوان بنسخته الحديثة:</span> نقاشات وشروحات وأدوات ومصادر عن الفلوس والأسواق، <span class="g">كلها بضغطة زر.</span>',
   fK:'شاهد · استمع · اقرأ', fH:'اختار <em class="gold-text">مكانك.</em>', fP:'شوف فيديو الأسبوع، أو اسمع السوالف الطويلة، أو اقرأ الرسالة مع قهوة الصبح. على راحتك.',
   sYt:'يوتيوب', ytH:'الشروحات', ytP:'كل أسبوع موضوع واحد، نشرحه ببساطة في حوالي ١٢ دقيقة. أسواق وصفقات والأفكار اللي وراها.', ytGo:'اشترك على يوتيوب',
   sPod:'في 2027', podH:'الديوانية', podP:'بودكاستنا، على اسم جلسات المساء. سوالف طويلة ورايقة مع مستثمرين ومؤسسين وناس جرّبوا بنفسهم.',
-  sNews:'أسبوعية', newsH:'سجل الضيوف', newsP:'خلّ إيميلك ونرسل لك رسالة وحدة كل أسبوع: صفقة الكل يتكلم عنها، ورسم يستاهل تحفظه، وفكرة تفكّر فيها.',
+  sNews:'أسبوعية', newsH:'الرسالة الأسبوعية', newsP:'خلّ إيميلك ونرسل لك رسالة وحدة كل أسبوع: صفقة الكل يتكلم عنها، ورسم يستاهل تحفظه، وفكرة تفكّر فيها.',
   sTpl:'قريباً', tplH:'الأدوات', tplP:'جداول وعروض تقديمية ونماذج مالية تساعد الشباب في عالم المالية والاستثمار. ومعها شروحات عملية، مثل بناء نموذج التدفقات النقدية المخصومة خطوة بخطوة، أو تمارين على حساب العائد الداخلي.', tplGo:'أعلمني عند الإطلاق',
   socH:'التواصل الاجتماعي', socP:'لقطات سريعة طول الأسبوع، لما يكون عندك دقيقة.',
   dK:'على الطاولة', dH:'سؤال <em>هالأسبوع.</em>', dQ:'خلال العشر سنين الجاية، وش تفضّل تملك؟',
@@ -733,7 +735,7 @@ function setLang(l){
   document.querySelectorAll('[data-i18n]').forEach(el => { const v = D[el.dataset.i18n]; if (v != null) el.innerHTML = v; });
   document.querySelectorAll('[data-i18n-ph]').forEach(el => { const v = D[el.dataset.i18nPh]; if (v != null) el.placeholder = v; });
   document.getElementById('langBtn').textContent = l === 'ar' ? 'EN' : 'عربي';
-  document.title = l === 'ar' ? 'ألفا ديوان — الديوان برؤية جديدة' : 'Alpha Diwan — The diwan, reimagined';
+  document.title = l === 'ar' ? 'ألفا ديوان — خلّنا نسولف عن الأسواق والبزنس' : 'Alpha Diwan — Let\'s talk markets & business';
   buildMarquee(); splitLit(); lightWords(); updateDebNote();
   window.dispatchEvent(new Event('langchange'));
   try { localStorage.setItem('ad-lang', l); } catch(e){}
@@ -899,9 +901,10 @@ function showResults(){
   opts.forEach(x => x.classList.toggle('picked', x.dataset.v === pick));
   const t = tally || {a: 0, b: 0}, n = t.a + t.b;
   opts.forEach(x => {
-    const pct = n ? Math.round(t[x.dataset.v] / n * 100) : (x.dataset.v === pick ? 100 : 0);
+    const few = n < 10, pct = few ? 0 : Math.round(t[x.dataset.v] / n * 100);
     x.querySelector('.opt-bar i').style.width = pct + '%';
-    x.querySelector('.opt-pct').textContent = (lang === 'ar' ? pct.toLocaleString('ar-EG') + '٪' : pct + '%');
+    x.querySelector('.opt-pct').textContent = few ? '' : (lang === 'ar' ? pct.toLocaleString('ar-EG') + '٪' : pct + '%');
+    x.querySelector('.opt-res').style.visibility = few ? 'hidden' : '';
   });
   updateDebNote(); drawRoom();
 }
