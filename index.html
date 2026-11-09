@@ -410,6 +410,11 @@ html[lang=ar] .thumb small{letter-spacing:0!important;font-size:.72rem;font-fami
 html[lang=ar] .thumb strong{font-family:var(--arabic)!important;font-size:clamp(.95rem,1.4vw,1.2rem);line-height:1.4;max-width:100%}
 html[lang=ar] .cov{font-family:var(--arabic)!important;font-size:.85rem;line-height:1.45}
 html[lang=ar] .cov .k{letter-spacing:0}
+/* Arabic wordmark */
+.brand .wm-ar{display:none;font-family:'Amiri',serif!important;font-weight:400;font-size:1.6rem;line-height:1;letter-spacing:0;transform:translateY(-.08em)}
+html[lang=ar] .brand .wm-en{display:none}
+html[lang=ar] .brand .wm-ar{display:inline}
+@media(max-width:620px){.brand .wm-ar{font-size:1.35rem}}
 /* trading ticker */
 .marquee{padding:0;height:40px;display:flex;align-items:center;background:var(--abyss);border-top:1px solid rgba(207,169,96,.28);border-bottom:1px solid rgba(207,169,96,.28)}
 .marquee .track{animation:slide 80s linear infinite;align-items:center}
@@ -430,7 +435,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="#top" class="brand" aria-label="Alpha Diwan home"><svg class="mark" viewBox="0 0 1503.0 1615.0"><use href="#ad-mark"/></svg><i></i><span>alpha diwan</span></a>
+    <a href="#top" class="brand" aria-label="Alpha Diwan home"><svg class="mark" viewBox="0 0 1503.0 1615.0"><use href="#ad-mark"/></svg><i></i><span class="wm-en">alpha diwan</span><span class="wm-ar" lang="ar">ألفا ديوان</span></a>
     <nav class="links" aria-label="Primary">
       <a href="#debate" data-i18n="nav2">The Debate</a><a href="#channels" data-i18n="nav1">Formats</a><a href="#episodes" data-i18n="nav3">Episodes</a><a href="#about" data-i18n="nav4">About</a>
     </nav>
@@ -594,7 +599,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
 <footer>
   <div class="wrap">
     <div class="foot">
-      <a href="#top" class="brand"><svg class="mark" viewBox="0 0 1503.0 1615.0"><use href="#ad-mark"/></svg><i></i><span>alpha diwan</span></a>
+      <a href="#top" class="brand"><svg class="mark" viewBox="0 0 1503.0 1615.0"><use href="#ad-mark"/></svg><i></i><span class="wm-en">alpha diwan</span><span class="wm-ar" lang="ar">ألفا ديوان</span></a>
       <nav><a href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener">YouTube</a><a href="https://www.instagram.com/alpha.diwan" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/alphadiwan" target="_blank" rel="noopener">X</a><a href="https://www.tiktok.com/@alphadiwan" target="_blank" rel="noopener">TikTok</a><a href="https://www.linkedin.com/company/alphadiwan" target="_blank" rel="noopener">LinkedIn</a><span>hala@alphadiwan.com</span></nav>
       <span>© <span id="yr">2026</span> <span data-i18n="copy">Alpha Diwan</span></span>
     </div>
@@ -761,6 +766,9 @@ function updateDebNote(){
 // one vote per visitor (IP checked server-side); the poll id follows the week's question, so a new question resets the count
 const POLL = (() => { let h = 0; for (const c of EN.dQ || '') h = (h * 31 + c.charCodeAt(0)) | 0; return 'q' + (h >>> 0).toString(36); })();
 let tally = null;
+const DEV = (() => { let id; try { id = localStorage.getItem('ad-dev'); } catch(e){}
+  if (!id){ id = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36)).replace(/-/g, ''); try { localStorage.setItem('ad-dev', id); } catch(e){} }
+  return id; })();
 function showResults(){
   if (!pick) return;
   const box = document.getElementById('debOpts'); box.classList.add('voted');
@@ -775,7 +783,7 @@ function showResults(){
 }
 async function poll(method, v){
   try {
-    const r = await fetch('/api/vote?poll=' + POLL, method === 'POST' ? {method, headers: {'content-type': 'application/json'}, body: JSON.stringify({v})} : {});
+    const r = await fetch('/api/vote?poll=' + POLL + '&d=' + DEV, method === 'POST' ? {method, headers: {'content-type': 'application/json'}, body: JSON.stringify({v, d: DEV})} : {});
     if (!r.ok) throw 0; const d = await r.json(); tally = {a: d.a, b: d.b};
     if (d.mine){ pick = d.mine; try { localStorage.setItem('ad-vote-' + POLL, pick); } catch(e){} }
   } catch(e){}
