@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alpha Diwan — Let's talk business</title>
-<meta name="description" content="Alpha Diwan is a modern forum for investing, deals and business: explainers, a weekly letter, conversations and a toolkit for young professionals in the Gulf.">
+<meta name="description" content="Alpha Diwan is a modern forum for investing, deals and business: explainers, a periodic newsletter, conversations and a toolkit for young professionals in the Gulf.">
 <link rel="canonical" href="https://alphadiwan.com/">
 <meta property="og:title" content="Alpha Diwan — Let's talk business">
 <meta property="og:description" content="A modern forum for investing, deals and business.">
@@ -451,6 +451,18 @@ html[lang=ar] .hr-k,html[lang=ar] .epn{letter-spacing:0;font-size:.78rem;text-tr
 @media(max-width:900px){.hero-row{grid-template-columns:1fr;max-width:none}}
 
 /* digital majlis: section markers, the room, finjan, dusk-to-night, guest book */
+.sec-bar{display:flex;align-items:center;gap:22px;width:100%;margin:0 0 60px;color:var(--gold)}
+.sb-n{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(2.4rem,4vw,3.4rem);line-height:.8;color:var(--gold-soft);min-width:1.4em}
+.sb-l{font-size:.8rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap}
+.sb-r{flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.55}
+html[dir=rtl] .sb-r{background:linear-gradient(270deg,var(--gold),transparent)}
+html[lang=ar] .sb-n{font-family:var(--arabic);font-style:normal;font-weight:300}
+html[lang=ar] .sb-l{letter-spacing:0;font-size:1rem;text-transform:none}
+.debate .sec-bar{color:var(--gold-mute)}
+.debate .sb-n{color:var(--gold-mute)}
+.debate .sb-r{background:linear-gradient(90deg,var(--gold-mute),transparent)}
+html[dir=rtl] .debate .sb-r{background:linear-gradient(270deg,var(--gold-mute),transparent)}
+section.debate,section.channels,section.rail-sec,section.about{padding-top:110px}
 .kicker[data-n]::after{content:attr(data-n);order:-1;font-family:var(--serif);font-size:.95rem;letter-spacing:.05em;text-transform:none;opacity:.7}
 .room{max-width:720px;margin:34px auto 0}
 .room svg{width:100%;height:auto;display:block;overflow:visible}
@@ -503,7 +515,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
   <div class="wrap nav-inner">
     <a href="#top" class="brand" aria-label="Alpha Diwan home"><svg class="mark" viewBox="0 0 1503.0 1615.0"><use href="#ad-mark"/></svg><i></i><span class="wm-en">alpha diwan</span><span class="wm-ar" lang="ar">ألفا ديوان</span></a>
     <nav class="links" aria-label="Primary">
-      <a href="#debate" data-i18n="nav2">On the table</a><a href="#channels" data-i18n="nav1">Watch · Listen · Read</a><a href="#episodes" data-i18n="nav3">Episodes</a><a href="#about" data-i18n="nav4">About</a>
+      <a href="#debate" data-i18n="nav2">Current topic</a><a href="#channels" data-i18n="nav1">Content</a><a href="#episodes" data-i18n="nav3">Upcoming</a><a href="#about" data-i18n="nav4">About</a>
     </nav>
     <div class="nav-right">
       <button class="lang" id="langBtn" type="button" aria-label="Switch language">عربي</button>
@@ -522,16 +534,16 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
       <h1><span class="line"><span data-i18n="h1a">Marhaba!</span></span><span class="line"><span><em class="gold-text" data-i18n="h1b">Let's talk business.</em></span></span></h1>
       <p class="sub" data-i18n="heroSub">A modern forum for investing, deals and business.</p>
       <div class="hero-cta">
-        <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-i18n="ctaWatch">Watch on YouTube</span></a>
+        <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-i18n="ctaWatch">Watch our explainers</span></a>
         <a class="btn btn-ghost mag" href="#news" data-to="news" data-i18n="ctaNews">Join the newsletter</a>
         <div class="badge" aria-hidden="true">
       <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
-        <text textLength="480" lengthAdjust="spacing"><textPath href="#circ" textLength="480" lengthAdjust="spacing"><tspan data-i18n="badge">NEW EVERY WEEK · ENGLISH &amp; ARABIC · </tspan></textPath></text></svg>
+        <text textLength="480" lengthAdjust="spacing"><textPath href="#circ" textLength="480" lengthAdjust="spacing"><tspan data-i18n="badge">MARKETS · DEALS · BUSINESS · </tspan></textPath></text></svg>
       <svg class="mark" viewBox="0 0 1503.0 1615.0"><use href="#ad-mark"/></svg>
     </div>
       </div>
       <div class="hero-row">
-        <a class="hr-card" href="#debate" data-to="debate"><span class="hr-k"><i class="dot"></i><span data-i18n="otK">On the table</span></span><span class="hr-q" data-i18n="dQ">Over the next ten years, which would you rather own?</span><span class="split"><b class="sa"></b></span><span class="hr-meta"><span><span data-i18n="dA">Real estate</span> <em id="pa"></em></span><span><em id="pb"></em> <span data-i18n="dB">Public equities</span></span></span><span class="hr-go" id="otGo"></span></a>
+        <a class="hr-card" href="#debate" data-to="debate"><span class="hr-k"><i class="dot"></i><span data-i18n="otK">Current topic</span></span><span class="hr-q" data-i18n="dQ">Over the next ten years, which would you rather own?</span><span class="split"><b class="sa"></b></span><span class="hr-meta"><span><span data-i18n="dA">Real estate</span> <em id="pa"></em></span><span><em id="pb"></em> <span data-i18n="dB">Public equities</span></span></span><span class="hr-go" id="otGo"></span></a>
         <a class="hr-card hr-ep" href="#episodes" data-to="episodes"><span class="hr-thumb"><span class="big">D</span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="hr-body"><span class="hr-k"><i class="dot live"></i><span data-i18n="upK">Up next · EP 01</span></span><span class="hr-t" data-i18n="e1">Dubai property: 2008 vs today</span><span class="hr-m" data-i18n="upM">12 min · Premieres this month</span></span></a>
       </div>
     </div>
@@ -548,15 +560,15 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
         <div class="def-type" data-i18n="defType">noun</div>
         <div data-i18n="defP"><ol class="senses"><li>A place to gather, talk and trade news. A majlis.</li><li>A register of accounts. The first diwans kept the books on revenue and pay.</li><li>A collected body of work, as in a poet's diwan.</li></ol></div>
       </div>
-      <p id="lit" data-i18n="lit">In the Gulf, the diwan is where people gather to talk, share news and learn from each other. <span class="g">Alpha Diwan is the modern version:</span> discussions, explainers, tools and resources on money and markets, <span class="g">all a tap away.</span></p>
+      <p id="lit" data-i18n="lit"><span class="g">Alpha Diwan brings all three together</span> under one digital platform: a place to talk markets and business, a record of the numbers worth knowing, and a growing collection of explainers, conversations and tools.</p>
     </div>
   </section>
 
   <!-- DEBATE (light) -->
   <section id="debate" class="debate">
     <div class="wrap">
+      <div class="sec-bar reveal"><b class="sb-n" data-i18n="sn1">I</b><span class="sb-l" data-i18n="dK">Current topic</span><i class="sb-r"></i></div>
       <div class="deb-head">
-        <span class="kicker reveal" data-n="I" data-i18n="dK">On the table</span>
         <h2 class="h2 reveal d1" data-i18n="dH">This week's <em>question.</em></h2>
       </div>
       <div class="deb-q reveal d2" data-i18n="dQ">Over the next ten years, which would you rather own?</div>
@@ -565,16 +577,17 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
         <span class="vs" data-i18n="vs">or</span>
         <button type="button" class="opt" data-v="b"><span class="opt-k">B</span><span class="opt-t" data-i18n="dB">Public equities</span><span class="opt-case" data-i18n="dBc">Easy to buy and sell, spread across many companies, and quietly growing over the years.</span><span class="opt-res" aria-live="polite"><span class="opt-bar"><i></i></span><b class="opt-pct">0%</b></span></button>
       </div>
-      <p class="deb-note reveal d4" id="debNote"><svg class="finjan" viewBox="0 0 40 32" aria-hidden="true"><path d="M6 6h28l-3.2 15.5A7 7 0 0 1 24 27h-8a7 7 0 0 1-6.8-5.5z"/><path d="M4 30h32" /></svg><span data-i18n="dNote">Everyone gets a vote. Pick a side and see where the room leans.</span></p>
+      <p class="deb-note reveal d4" id="debNote"><svg class="finjan" viewBox="0 2 40 28" aria-hidden="true"><path d="M6 6h28l-3.2 15.5A7 7 0 0 1 24 27h-8a7 7 0 0 1-6.8-5.5z"/></svg><span data-i18n="dNote">Everyone gets a vote. Pick a side and see where the room leans.</span></p>
     </div>
   </section>
 
   <!-- FORMATS -->
   <section id="channels" class="channels">
     <div class="wrap">
+      <div class="sec-bar reveal"><b class="sb-n" data-i18n="sn2">II</b><span class="sb-l" data-i18n="fK">Content</span><i class="sb-r"></i></div>
       <div class="ch-head">
-        <div><span class="kicker reveal" data-n="II" data-i18n="fK">Watch · Listen · Read</span><h2 class="h2 reveal d1" data-i18n="fH">Pick your <em class="gold-text">seat.</em></h2></div>
-        <p class="reveal d2" data-i18n="fP">Watch the weekly video, listen to the long chats, or read the letter over your morning coffee. Whatever suits you.</p>
+        <div><h2 class="h2 reveal d1" data-i18n="fH">Pick your <em class="gold-text">seat.</em></h2></div>
+        <p class="reveal d2" data-i18n="fP">Watch the explainers, listen to the long chats, or read the newsletter over your morning coffee. Whatever suits you.</p>
       </div>
       <div class="bento">
         <a class="card c-yt reveal" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener">
@@ -584,7 +597,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
             <div class="thumb t2"><span class="play"></span><small data-i18n="th2">Explainer</small><strong data-i18n="th2t">Private equity, explained</strong></div>
             <div class="thumb t3"><span class="play"></span><small data-i18n="th3">Fundamentals</small><strong data-i18n="th3t">IRR, explained</strong></div>
           </div>
-          <div><h3><em data-i18n="ytH">Explainers</em></h3><p data-i18n="ytP">One topic a week, explained simply in about twelve minutes. Markets, deals and the ideas behind them.</p><span class="go" data-i18n="ytGo">Subscribe on YouTube</span></div>
+          <div><h3><em data-i18n="ytH">Explainers</em></h3><p data-i18n="ytP">One topic at a time, explained simply in about twelve minutes. Markets, deals and the ideas behind them.</p><span class="go" data-i18n="ytGo">Subscribe on YouTube</span></div>
         </a>
         <div class="card c-pod reveal d1">
           <div class="top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span class="status" data-i18n="sPod">Coming 2027</span></div>
@@ -592,9 +605,9 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
           <div><h3><em data-i18n="podH">Diwaniya</em></h3><span class="ar acc pod-ar" style="display:block">الديوانية</span><p data-i18n="podP">Our podcast, named after the evening gatherings. Long, relaxed conversations with investors, founders and people who've done it themselves.</p></div>
         </div>
         <div class="card c-news reveal" id="news">
-          <div class="top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span class="status" data-i18n="sNews">Weekly</span></div>
+          <div class="top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span class="status" data-i18n="sNews">Periodic</span></div>
           <div class="fan" aria-hidden="true"><div class="cov"><span class="k" data-i18n="nv1k">One</span><span data-i18n="nv1">Transaction</span></div><div class="cov"><svg class="sl" viewBox="0 0 100 34"><polyline points="0,28 14,24 26,26 40,17 54,20 68,10 82,13 100,3" fill="none" stroke="#B4443B" stroke-width="1.6"/><circle cx="100" cy="3" r="2.4" fill="#D9756D"/></svg><span class="k" data-i18n="nv2k">One</span><span data-i18n="nv2">Chart</span></div><div class="cov"><span class="k" data-i18n="nv3k">One</span><span data-i18n="nv3">Insight</span></div></div>
-          <div><h3><em data-i18n="newsH">Weekly letter</em></h3><p data-i18n="newsP">Leave your email and we'll send one letter a week: a deal everyone's talking about, a chart worth saving and one idea to think over.</p>
+          <div><h3><em data-i18n="newsH">Letters</em></h3><p data-i18n="newsP">Subscribe to receive our periodic newsletters: a deal everyone's talking about, a chart worth saving and one idea to think over.</p>
           <div class="bh-embed"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="6b6e51e0-d9ef-43e9-9145-2294936391e1"></script></div></div>
         </div>
         <a class="card c-tpl reveal d1" id="tpl" href="#" data-store-link>
@@ -622,8 +635,9 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
 
   <!-- EPISODES -->
   <section id="episodes" class="rail-sec">
+    <div class="wrap"><div class="sec-bar reveal"><b class="sb-n" data-i18n="sn3">III</b><span class="sb-l" data-i18n="eK">Upcoming</span><i class="sb-r"></i></div></div>
     <div class="wrap rail-head">
-      <div><span class="kicker reveal" data-n="III" data-i18n="eK">Coming up</span><h2 class="h2 reveal d1" data-i18n="eH">What we're <em class="gold-text">discussing.</em></h2></div>
+      <div><h2 class="h2 reveal d1" data-i18n="eH">What we're <em class="gold-text">discussing.</em></h2></div>
       <div class="rail-ctrl reveal d2"><button type="button" id="prev" aria-label="Previous">←</button><button type="button" id="next" aria-label="Next">→</button></div>
     </div>
     <div class="rail" id="rail">
@@ -638,9 +652,9 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
 
   <!-- ABOUT / CREDIBILITY -->
   <section id="about" class="about">
+    <div class="wrap"><div class="sec-bar reveal"><b class="sb-n" data-i18n="sn4">IV</b><span class="sb-l" data-i18n="aK">Your hosts</span><i class="sb-r"></i></div></div>
     <div class="wrap about-grid">
       <div>
-        <span class="kicker reveal" data-n="IV" data-i18n="aK">Your hosts</span>
         <h2 class="h2 reveal d1" data-i18n="aH">Every diwan has <em class="gold-text">its hosts.</em></h2>
         <p class="about-p reveal d2" data-i18n="aP">Ours have spent their careers in the region's markets. We keep things clear, honest and open to every point of view, and we're always happy to go back to the basics.</p>
       </div>
@@ -654,7 +668,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
       <svg class="mark reveal" viewBox="0 0 1503.0 1615.0" aria-hidden="true"><use href="#ad-mark"/></svg>
       <h2 class="reveal d1" data-i18n="cH">See you <em class="gold-text">again soon.</em></h2>
       <div class="hero-cta reveal d3">
-        <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-i18n="ctaWatch2">Watch on YouTube</span></a>
+        <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-i18n="ctaWatch2">Watch our explainers</span></a>
         <a class="btn btn-ghost mag" href="#news" data-to="news" data-i18n="ctaNews2">Join the newsletter</a>
       </div>
     </div>
@@ -682,22 +696,22 @@ const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 
 // ===== i18n =====
 const AR = {
-  nav1:'شاهد · استمع · اقرأ', nav2:'على الطاولة', nav3:'الحلقات', nav4:'من نحن', navCta:'اشترك',
+  nav1:'المحتوى', nav2:'الموضوع الحالي', nav3:'القادم', nav4:'عنّا', navCta:'اشترك', sn1:'١', sn2:'٢', sn3:'٣', sn4:'٤',
   heroK:'الاستثمار · الصفقات · الاستراتيجية', h1a:'مرحبا!', h1b:'خلّ نتكلم عن البزنس.',
   heroSub:'منصة حديثة للنقاش في الاستثمار والصفقات والأعمال.',
-  ctaWatch:'شاهد على يوتيوب', ctaNews:'اشترك في النشرة', ctaWatch2:'شاهد على يوتيوب', ctaNews2:'اشترك في النشرة',
+  ctaWatch:'شاهد الشروحات', ctaNews:'اشترك في النشرة', ctaWatch2:'شاهد الشروحات', ctaNews2:'اشترك في النشرة',
   defType:'اسم', defP:'<ol class="senses"><li>مكان يجتمع فيه الناس للسوالف وتبادل العلوم والآراء، مثل المجلس.</li><li>سجل الحسابات. أول الدواوين كانت تسجّل الإيرادات والعطايا.</li><li>مجموعة أعمال في مكان واحد، مثل ديوان الشاعر.</li></ol>',
-  lit:'في الخليج، الديوان هو المكان اللي يجتمع فيه الناس يسولفون ويتبادلون العلوم ويتعلّمون من بعض. <span class="g">وألفا ديوان هو الديوان بنسخته الحديثة:</span> نقاشات وشروحات وأدوات ومصادر عن الفلوس والأسواق، <span class="g">كلها بضغطة زر.</span>',
-  fK:'شاهد · استمع · اقرأ', fH:'اختار <em class="gold-text">مكانك.</em>', fP:'شوف فيديو الأسبوع، أو اسمع السوالف الطويلة، أو اقرأ الرسالة مع قهوة الصبح. على راحتك.',
-  sYt:'يوتيوب', ytH:'الشروحات', ytP:'كل أسبوع موضوع واحد، نشرحه ببساطة في حوالي ١٢ دقيقة. أسواق وصفقات والأفكار اللي وراها.', ytGo:'اشترك على يوتيوب',
+  lit:'<span class="g">ألفا ديوان يجمع المعاني الثلاثة</span> في منصة رقمية وحدة: مجلس نسولف فيه عن الأسواق والبزنس، وسجل للأرقام اللي تهمّ، ومجموعة تكبر من الشروحات والحوارات والأدوات.',
+  fK:'المحتوى', fH:'اختار <em class="gold-text">مكانك.</em>', fP:'شوف الشروحات، أو اسمع السوالف الطويلة، أو اقرأ الرسائل مع قهوة الصبح. على راحتك.',
+  sYt:'يوتيوب', ytH:'الشروحات', ytP:'موضوع واحد في كل حلقة، نشرحه ببساطة في حوالي ١٢ دقيقة. أسواق وصفقات والأفكار اللي وراها.', ytGo:'اشترك على يوتيوب',
   sPod:'في 2027', podH:'الديوانية', podP:'بودكاستنا، على اسم جلسات المساء. سوالف طويلة ورايقة مع مستثمرين ومؤسسين وناس جرّبوا بنفسهم.',
-  sNews:'أسبوعية', newsH:'الرسالة الأسبوعية', newsP:'خلّ إيميلك ونرسل لك رسالة وحدة كل أسبوع: صفقة الكل يتكلم عنها، ورسم يستاهل تحفظه، وفكرة تفكّر فيها.',
+  sNews:'دورية', newsH:'رسائل', newsP:'اشترك واستلم رسائلنا الدورية: صفقة الكل يتكلم عنها، ورسم يستاهل تحفظه، وفكرة تفكّر فيها.',
   sTpl:'قريباً', tplH:'الأدوات', tplP:'جداول وعروض تقديمية ونماذج مالية تساعد الشباب في عالم المالية والاستثمار. ومعها شروحات عملية، مثل بناء نموذج التدفقات النقدية المخصومة خطوة بخطوة، أو تمارين على حساب العائد الداخلي.', tplGo:'أعلمني عند الإطلاق',
   socH:'التواصل الاجتماعي', socP:'لقطات سريعة طول الأسبوع، لما يكون عندك دقيقة.',
-  dK:'على الطاولة', dH:'سؤال <em>هالأسبوع.</em>', dQ:'خلال العشر سنين الجاية، وش تفضّل تملك؟',
+  dK:'الموضوع الحالي', dH:'سؤال <em>هالأسبوع.</em>', dQ:'خلال العشر سنين الجاية، وش تفضّل تملك؟',
   dA:'العقار', dAc:'شي تشوفه وتلمسه، وإيجار يدخل كل شهر، وتقدر تموّل عليه.', dB:'الأسهم المدرجة', dBc:'سهلة البيع والشراء، موزّعة على شركات كثيرة، وتكبر بهدوء مع السنين.',
   vs:'أم', dNote:'الكل له صوت. اختار جهة وشوف وين يميل المجلس.',
-  eK:'قريباً', eH:'المواضيع <em class="gold-text">اللي نناقشها.</em>',
+  eK:'القادم', eH:'المواضيع <em class="gold-text">اللي نناقشها.</em>',
   tMkt:'الأسواق', tFund:'أساسيات', tExp:'شرح', tExp2:'شرح', tIf:'تمويل إسلامي', tPod:'الديوانية · بودكاست',
   e1:'عقارات دبي: بين 2008 واليوم', e2:'معدل العائد الداخلي: ما يكشفه وما يخفيه', e3:'الملكية الخاصة ببساطة', e4:'الصكوك مقابل السندات', e5:'ما هو الائتمان الخاص؟', e6:'داخل المكتب العائلي',
   ep1:'الحلقة 01', ep2:'الحلقة 02', ep3:'الحلقة 03', ep4:'الحلقة 04', ep5:'الحلقة 05', epPod:'بودكاست', soon:'قريباً',
@@ -705,10 +719,10 @@ const AR = {
   aP:'أهل ديواننا قضوا سنين في أسواق المنطقة. نخلّي الكلام واضح وصريح ومفتوح لكل الآراء، ودايماً نرجع للأساسيات إذا احتجت.',
   cH:'حيّاكم <em class="gold-text">في أي وقت.</em>',
   nv1k:'٠١', nv1:'صفقة واحدة', nv2k:'٠٢', nv2:'رسم بياني واحد', nv3k:'٠٣', nv3:'فكرة واحدة',
-  badge:'جديد كل أسبوع · بالعربية والإنجليزية · جديد كل أسبوع · بالعربية والإنجليزية · ',
+  badge:'أسواق · صفقات · بزنس · أسواق · صفقات · بزنس · ',
   th1:'الأسواق', th1t:'عقارات دبي: 2008 واليوم', th2:'شرح', th2t:'الملكية الخاصة ببساطة', th3:'أساسيات', th3t:'العائد الداخلي ببساطة',
   cv1:'عرض للمستثمرين', cv2:'التدفقات المخصومة خطوة بخطوة', cv3:'تمارين العائد الداخلي', shorts:'شورتس', copy:'ألفا ديوان',
-  otK:'على الطاولة', upK:'الحلقة القادمة · ٠١', upM:'١٢ دقيقة · تُعرض هذا الشهر',
+  otK:'الموضوع الحالي', upK:'الحلقة القادمة · ٠١', upM:'١٢ دقيقة · تُعرض هذا الشهر',
   legal:'تنشر ألفا ديوان محتوى تعليمياً فقط، ولا يُعدّ أي شيء في هذا الموقع أو في الفيديوهات أو البودكاست أو النشرة أو النماذج نصيحةً استثمارية أو قانونية أو ضريبية.'
 };
 const MARQ = [
@@ -721,8 +735,8 @@ const MARQ = [
   ['VAL','Valuation','التقييم']
 ];
 const NOTES = {
-  en:{none:'Everyone gets a vote. Pick a side and see where the room leans.', a:'You picked real estate. Good arguments on both sides, and we dig into it in this week\'s letter.', b:'You picked public equities. Good arguments on both sides, and we dig into it in this week\'s letter.'},
-  ar:{none:'الكل له صوت. اختار جهة وشوف وين يميل المجلس.', a:'اخترت العقار. الطرفين عندهم حجّة، ونتعمّق فيها في رسالة هالأسبوع.', b:'اخترت الأسهم المدرجة. الطرفين عندهم حجّة، ونتعمّق فيها في رسالة هالأسبوع.'}
+  en:{none:'Everyone gets a vote. Pick a side and see where the room leans.', a:'You picked real estate. Good arguments on both sides, and we dig into it in our next newsletter.', b:'You picked public equities. Good arguments on both sides, and we dig into it in our next newsletter.'},
+  ar:{none:'الكل له صوت. اختار جهة وشوف وين يميل المجلس.', a:'اخترت العقار. الطرفين عندهم حجّة، ونتعمّق فيها في رسالتنا الجاية.', b:'اخترت الأسهم المدرجة. الطرفين عندهم حجّة، ونتعمّق فيها في رسالتنا الجاية.'}
 };
 const EN = {};
 document.querySelectorAll('[data-i18n]').forEach(el => EN[el.dataset.i18n] = el.innerHTML);
@@ -826,7 +840,7 @@ const opts = document.querySelectorAll('.opt'), debNote = document.getElementByI
 function updateDebNote(){
   let t = NOTES[lang][pick || 'none'];
   const n = typeof tally !== 'undefined' && tally ? tally.a + tally.b : 0;
-  if (pick && n >= 10) t += lang === 'ar' ? ` · ${n.toLocaleString('ar-EG')} صوتاً` : ` · ${n.toLocaleString()} votes`;
+  if (pick && n > 0) t += lang === 'ar' ? ` · ${n.toLocaleString('ar-EG')} ${n === 1 ? 'صوت' : 'صوتاً'}` : ` · ${n.toLocaleString()} ${n === 1 ? 'vote' : 'votes'}`;
   (debNote.querySelector('[data-i18n="dNote"]') || debNote).textContent = t;
 }
 // one vote per visitor (IP checked server-side); the poll id follows the week's question, so a new question resets the count
@@ -869,12 +883,12 @@ addEventListener('langchange', drawRoom);
 })();
 function updStrip(){
   const sa = document.querySelector('.split .sa'); if (!sa) return;
-  const t = tally || {a: 0, b: 0}, n = t.a + t.b, show = n >= 10, pa = show ? Math.round(t.a / n * 100) : 50;
+  const t = tally || {a: 0, b: 0}, n = t.a + t.b, show = n > 0, pa = show ? Math.round(t.a / n * 100) : 50;
   const f = v => lang === 'ar' ? v.toLocaleString('ar-EG') + '٪' : v + '%';
   sa.style.width = pa + '%';
   document.getElementById('pa').textContent = show ? f(pa) : '';
   document.getElementById('pb').textContent = show ? f(100 - pa) : '';
-  document.getElementById('otGo').textContent = show ? (lang === 'ar' ? `صوّت ${n.toLocaleString('ar-EG')} شخص · أضف صوتك ←` : `${n.toLocaleString('en-US')} people have voted · Add yours →`) : (lang === 'ar' ? 'كن أول من يصوّت ←' : 'Be the first to vote →');
+  document.getElementById('otGo').textContent = show ? (lang === 'ar' ? `${n.toLocaleString('ar-EG')} ${n === 1 ? 'صوت' : 'صوتاً'} لحد الحين · ${pick ? 'شوف النتيجة' : 'أضف صوتك'} ←` : `${n.toLocaleString('en-US')} ${n === 1 ? 'vote' : 'votes'} so far · ${pick ? 'See results' : 'Add yours'} →`) : (lang === 'ar' ? 'كن أول من يصوّت ←' : 'Be the first to vote →');
 }
 function issueLine(){
   const el = document.getElementById('issueK'); if (!el) return;
@@ -901,7 +915,7 @@ function showResults(){
   opts.forEach(x => x.classList.toggle('picked', x.dataset.v === pick));
   const t = tally || {a: 0, b: 0}, n = t.a + t.b;
   opts.forEach(x => {
-    const few = n < 10, pct = few ? 0 : Math.round(t[x.dataset.v] / n * 100);
+    const few = !n, pct = few ? 0 : Math.round(t[x.dataset.v] / n * 100);
     x.querySelector('.opt-bar i').style.width = pct + '%';
     x.querySelector('.opt-pct').textContent = few ? '' : (lang === 'ar' ? pct.toLocaleString('ar-EG') + '٪' : pct + '%');
     x.querySelector('.opt-res').style.visibility = few ? 'hidden' : '';
