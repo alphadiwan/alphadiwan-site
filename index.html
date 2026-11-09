@@ -279,13 +279,14 @@ html[lang=ar] .lang{font-family:var(--sans);font-size:.72rem;letter-spacing:.14e
 .btn.mag{transition:transform .25s var(--ease),box-shadow .3s}
 
 /* spinning badge */
-.badge{position:absolute;z-index:3;right:max(32px,calc((100vw - 1240px)/2 + 32px));bottom:13vh;width:118px;height:118px;display:grid;place-items:center;opacity:0;animation:fade 1s 1.4s forwards}
+.hero-cta{align-items:center}
+.badge{direction:ltr;position:relative;margin-inline-start:18px;align-self:center;width:96px;height:96px;flex:0 0 96px;display:grid;place-items:center;opacity:0;animation:fade 1s 1.4s forwards}
 .badge svg:first-child{position:absolute;inset:0;width:100%;height:100%;animation:spin 22s linear infinite}
 .badge text{font:600 13.5px var(--sans);letter-spacing:.24em;fill:var(--gold-soft)}
-.badge .mark{width:26px;color:var(--gold)}
+.badge .mark{width:22px;color:var(--gold)}
 @keyframes spin{to{transform:rotate(360deg)}}
-html[dir=rtl] .badge{right:auto;left:max(32px,calc((100vw - 1240px)/2 + 32px))}
-@media(max-width:900px){.badge{display:none}}
+
+@media(max-width:1100px){.badge{display:none}}
 
 /* marquee stays LTR for the animation */
 .marquee{direction:ltr}
@@ -397,12 +398,12 @@ html[dir=rtl] .ep .big{right:auto;left:-6%}
       <div class="hero-cta">
         <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-i18n="ctaWatch">Watch on YouTube</span></a>
         <a class="btn btn-ghost mag" href="#news" data-to="news" data-i18n="ctaNews">Join the newsletter</a>
-      </div>
-    </div>
-    <div class="badge" aria-hidden="true">
+        <div class="badge" aria-hidden="true">
       <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
         <text textLength="480" lengthAdjust="spacing"><textPath href="#circ" textLength="480" lengthAdjust="spacing">NEW EVERY WEEK · ENGLISH &amp; ARABIC · </textPath></text></svg>
       <svg class="mark" viewBox="0 0 1503.0 1615.0"><use href="#ad-mark"/></svg>
+    </div>
+      </div>
     </div>
     <div class="scroll-cue"><i></i></div>
   </section>
