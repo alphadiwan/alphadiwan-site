@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alpha Diwan — Let's talk markets &amp; business</title>
+<title>Alpha Diwan — Let's talk business</title>
 <meta name="description" content="Alpha Diwan is a modern forum for investing, deals and business: explainers, a weekly letter, conversations and a toolkit for young professionals in the Gulf.">
 <link rel="canonical" href="https://alphadiwan.com/">
-<meta property="og:title" content="Alpha Diwan — Let's talk markets &amp; business">
+<meta property="og:title" content="Alpha Diwan — Let's talk business">
 <meta property="og:description" content="A modern forum for investing, deals and business.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alphadiwan.com/">
@@ -519,7 +519,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
     <canvas id="field" aria-hidden="true"></canvas>
     <div class="hero-sadu" aria-hidden="true"></div><div class="hero-sadu-h" aria-hidden="true"></div>
     <div class="wrap hero-inner">
-      <h1><span class="line"><span data-i18n="h1a">Marhaba!</span></span><span class="line"><span><em class="gold-text" data-i18n="h1b">Let's talk markets &amp; business.</em></span></span></h1>
+      <h1><span class="line"><span data-i18n="h1a">Marhaba!</span></span><span class="line"><span><em class="gold-text" data-i18n="h1b">Let's talk business.</em></span></span></h1>
       <p class="sub" data-i18n="heroSub">A modern forum for investing, deals and business.</p>
       <div class="hero-cta">
         <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-i18n="ctaWatch">Watch on YouTube</span></a>
@@ -683,7 +683,7 @@ const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 // ===== i18n =====
 const AR = {
   nav1:'شاهد · استمع · اقرأ', nav2:'على الطاولة', nav3:'الحلقات', nav4:'من نحن', navCta:'اشترك',
-  heroK:'الاستثمار · الصفقات · الاستراتيجية', h1a:'مرحبا!', h1b:'خلّنا نسولف عن الأسواق والبزنس.',
+  heroK:'الاستثمار · الصفقات · الاستراتيجية', h1a:'مرحبا!', h1b:'خلّ نتكلم عن البزنس.',
   heroSub:'منصة حديثة للنقاش في الاستثمار والصفقات والأعمال.',
   ctaWatch:'شاهد على يوتيوب', ctaNews:'اشترك في النشرة', ctaWatch2:'شاهد على يوتيوب', ctaNews2:'اشترك في النشرة',
   defType:'اسم', defP:'<ol class="senses"><li>مكان يجتمع فيه الناس للسوالف وتبادل العلوم والآراء، مثل المجلس.</li><li>سجل الحسابات. أول الدواوين كانت تسجّل الإيرادات والعطايا.</li><li>مجموعة أعمال في مكان واحد، مثل ديوان الشاعر.</li></ol>',
@@ -735,7 +735,7 @@ function setLang(l){
   document.querySelectorAll('[data-i18n]').forEach(el => { const v = D[el.dataset.i18n]; if (v != null) el.innerHTML = v; });
   document.querySelectorAll('[data-i18n-ph]').forEach(el => { const v = D[el.dataset.i18nPh]; if (v != null) el.placeholder = v; });
   document.getElementById('langBtn').textContent = l === 'ar' ? 'EN' : 'عربي';
-  document.title = l === 'ar' ? 'ألفا ديوان — خلّنا نسولف عن الأسواق والبزنس' : 'Alpha Diwan — Let\'s talk markets & business';
+  document.title = l === 'ar' ? 'ألفا ديوان — خلّ نتكلم عن البزنس' : 'Alpha Diwan — Let\'s talk business';
   buildMarquee(); splitLit(); lightWords(); updateDebNote();
   window.dispatchEvent(new Event('langchange'));
   try { localStorage.setItem('ad-lang', l); } catch(e){}
