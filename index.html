@@ -366,10 +366,31 @@ html[dir=rtl] .ep .big{right:auto;left:-6%}
 
 </style>
 <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
-<style>.bh-embed{position:relative;z-index:1;margin-top:18px;min-height:60px}.bh-embed,.bh-embed iframe{color-scheme:light}.bh-embed iframe{max-width:100%;border:0;background:transparent!important}.hero-sadu{position:absolute;top:0;bottom:0;right:0;width:30px;z-index:1;pointer-events:none;background-image:var(--sadu-v);background-repeat:repeat-y;background-size:30px auto;opacity:.6;-webkit-mask-image:linear-gradient(transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(transparent,#000 18%,#000 82%,transparent);animation:weaveV 50s linear infinite}
+<style>.bh-embed{position:relative;z-index:1;margin-top:18px;min-height:60px}.bh-embed,.bh-embed iframe{color-scheme:light}.bh-embed iframe{max-width:100%;border:0;background:transparent!important}.hero-sadu{position:absolute;top:0;bottom:0;right:0;width:30px;z-index:1;pointer-events:none;background-image:var(--sadu-v);background-repeat:repeat-y;background-size:30px auto;opacity:.6;-webkit-mask-image:linear-gradient(transparent,#000 22%);mask-image:linear-gradient(transparent,#000 22%);animation:weaveV 50s linear infinite}
 @keyframes weaveV{to{background-position:0 600px}}
 html[dir=rtl] .hero-sadu{right:auto;left:0}
 @media(max-width:900px){.hero-sadu{width:16px;background-size:16px auto;opacity:.45}}
+.hero-sadu-h{position:absolute;left:0;right:30px;bottom:0;height:30px;z-index:1;pointer-events:none;background-image:var(--sadu);background-repeat:repeat-x;background-size:auto 30px;background-position:0 center;opacity:.6;-webkit-mask-image:linear-gradient(to left,#000 30%,transparent 78%);mask-image:linear-gradient(to left,#000 30%,transparent 78%);animation:weaveH 50s linear infinite}
+@keyframes weaveH{to{background-position:-600px center}}
+html[dir=rtl] .hero-sadu-h{right:0;left:30px;-webkit-mask-image:linear-gradient(to right,#000 30%,transparent 78%);mask-image:linear-gradient(to right,#000 30%,transparent 78%);animation-direction:reverse}
+@media(max-width:900px){.hero-sadu-h{height:16px;background-size:auto 16px;right:16px;opacity:.45}html[dir=rtl] .hero-sadu-h{left:16px;right:0}}
+/* newsletter issue fan */
+.cov .k{font-family:var(--sans);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.cov svg.sl{width:100%;height:30px;margin:0 0 6px;overflow:visible}
+.c-news:hover .cov:nth-child(1){transform:rotate(-14deg) translate(-12px,-6px)}
+.c-news:hover .cov:nth-child(2){transform:translateY(-16px)}
+.c-news:hover .cov:nth-child(3){transform:rotate(12deg) translate(12px,-6px)}
+html[dir=rtl] .fan{direction:ltr}
+/* trading ticker */
+.marquee{padding:0;height:40px;display:flex;align-items:center;background:var(--abyss);border-top:1px solid rgba(207,169,96,.28);border-bottom:1px solid rgba(207,169,96,.28)}
+.marquee .track{animation:slide 80s linear infinite;align-items:center}
+.marquee span{font-family:var(--sans);font-size:12.5px;font-weight:400;line-height:1;padding:0;letter-spacing:.06em;color:var(--ivory)}
+.marquee .tk{display:inline-flex;align-items:center;gap:9px;padding:0 22px}
+.marquee .tk b{font-family:var(--sans) !important;font-weight:600;color:var(--gold);letter-spacing:.12em;font-size:11.5px}
+.marquee .tk i{font-style:normal;color:rgba(245,240,230,.78)}
+.marquee span.d{color:var(--gold-mute);font-size:8px;padding:0;align-self:center}
+html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-spacing:0}
+
 </style>
 </head>
 <body>
@@ -395,7 +416,7 @@ html[dir=rtl] .hero-sadu{right:auto;left:0}
   <!-- HERO -->
   <section class="hero grain">
     <canvas id="field" aria-hidden="true"></canvas>
-    <div class="hero-sadu" aria-hidden="true"></div>
+    <div class="hero-sadu" aria-hidden="true"></div><div class="hero-sadu-h" aria-hidden="true"></div>
     <div class="wrap hero-inner">
       <span class="kicker hero-k" data-i18n="heroK">Investing · Deals · Strategy</span>
       <h1><span class="line"><span data-i18n="h1a">The diwan,</span></span><span class="line"><span><em class="gold-text" data-i18n="h1b">reimagined.</em></span></span></h1>
@@ -412,8 +433,6 @@ html[dir=rtl] .hero-sadu{right:auto;left:0}
     </div>
     <div class="scroll-cue"><i></i></div>
   </section>
-
-  <div class="sadu" role="presentation"></div>
 
   <div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
 
@@ -453,6 +472,7 @@ html[dir=rtl] .hero-sadu{right:auto;left:0}
         </div>
         <div class="card c-news reveal" id="news">
           <div class="top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span class="status" data-i18n="sNews">Weekly</span></div>
+          <div class="fan" aria-hidden="true"><div class="cov"><span class="k" data-i18n="nv1k">One</span><span data-i18n="nv1">Transaction</span></div><div class="cov"><svg class="sl" viewBox="0 0 100 34"><polyline points="0,28 14,24 26,26 40,17 54,20 68,10 82,13 100,3" fill="none" stroke="#CFA960" stroke-width="1.6"/><circle cx="100" cy="3" r="2.4" fill="#E8D19E"/></svg><span class="k" data-i18n="nv2k">One</span><span data-i18n="nv2">Chart</span></div><div class="cov"><span class="k" data-i18n="nv3k">One</span><span data-i18n="nv3">Insight</span></div></div>
           <div><h3><em data-i18n="newsH">Newsletter</em></h3><p data-i18n="newsP">A concise weekly briefing: one transaction, one chart, one insight.</p>
           <div class="bh-embed"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="6b6e51e0-d9ef-43e9-9145-2294936391e1"></script></div></div>
         </div>
@@ -580,12 +600,18 @@ const AR = {
   aP:'يقود ألفا ديوان مختصون في الاستثمار بخبرة مؤسسية في دول الخليج. كل تحليل وحلقة ونموذج مبنيّ على تجربة فعلية في صفقات حقيقية، لا على النظريات.',
   c1:'عاماً في الاستثمار المؤسسي', c2:'الاستثمار المصرفي، والملكية الخاصة، والمكاتب العائلية', c3n:'العقار', c3:'التطوير والاستثمار العقاري في الخليج', c4:'ماجستير في الاستثمار المصرفي والتمويل الإسلامي؛ مرشّح CAIA',
   cH:'تفضّل، مكانك <em class="gold-text">في الديوان.</em>',
+  nv1k:'٠١', nv1:'صفقة واحدة', nv2k:'٠٢', nv2:'رسم بياني واحد', nv3k:'٠٣', nv3:'فكرة واحدة',
   legal:'تنشر ألفا ديوان محتوى تعليمياً فقط، ولا يُعدّ أي شيء في هذا الموقع أو في الفيديوهات أو البودكاست أو النشرة أو النماذج نصيحةً استثمارية أو قانونية أو ضريبية.'
 };
-const MARQ = {
-  en:['Private equity','Real estate','Private credit','Founders','Sukuk','Markets'],
-  ar:['الملكية الخاصة','العقار','الائتمان الخاص','المؤسسون','الصكوك','الأسواق']
-};
+const MARQ = [
+  ['PE','Private equity','الملكية الخاصة'],['PC','Private credit','الائتمان الخاص'],['RE','Real estate','العقار'],
+  ['VC','Venture capital','رأس المال الجريء'],['SKK','Sukuk','الصكوك'],['IF','Islamic finance','التمويل الإسلامي'],
+  ['EQ','Public markets','الأسواق المدرجة'],['FI','Fixed income','الدخل الثابت'],['IPO','IPOs','الطروحات الأولية'],
+  ['M&amp;A','Mergers &amp; acquisitions','الاندماج والاستحواذ'],['REIT','REITs','صناديق الريت'],['FO','Family offices','المكاتب العائلية'],
+  ['SP','Structured products','المنتجات المهيكلة'],['ALT','Alternative investments','الاستثمارات البديلة'],['TRAD','Traditional investments','الاستثمارات التقليدية'],
+  ['IRR','Internal rate of return','معدل العائد الداخلي'],['ROI','Return on investment','العائد على الاستثمار'],['MOIC','Multiple on invested capital','مضاعف رأس المال المستثمر'],
+  ['VAL','Valuation','التقييم']
+];
 const NOTES = {
   en:{none:'Pick a side to see the case for each.', a:'Noted: real estate. Both sides have a case. We take this debate apart in the newsletter.', b:'Noted: public equities. Both sides have a case. We take this debate apart in the newsletter.'},
   ar:{none:'اختر موقفك لترى حجّة كل طرف.', a:'اخترت العقار. لكل طرف حجّته، ونفصّل هذا النقاش في النشرة.', b:'اخترت الأسهم المدرجة. لكل طرف حجّته، ونفصّل هذا النقاش في النشرة.'}
@@ -609,7 +635,7 @@ function setLang(l){
 document.getElementById('langBtn').addEventListener('click', () => setLang(lang === 'ar' ? 'en' : 'ar'));
 
 function buildMarquee(){
-  const w = MARQ[lang], one = w.map((t, i) => `<span class="${i % 2 ? 'o' : ''}">${t}</span><span class="d">◆</span>`).join('');
+  const one = MARQ.map(([c, en, ar]) => `<span class="tk"><b>${c}</b><i>${lang === 'ar' ? ar : en}</i></span><span class="d">◆</span>`).join('');
   document.getElementById('marquee').innerHTML = one + one;
 }
 
@@ -720,92 +746,86 @@ addEventListener('pointermove', e => { if (down) rail.scrollLeft = sl - (e.clien
 
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-// ===== HERO PARTICLE FIELD: gold dust that morphs mark -> ديوان -> rising chart =====
+// ===== HERO PARTICLE FIELD: gold dust that forms the mark, scatters into a starry sky, then slowly re-forms =====
 (function(){
   const cv = document.getElementById('field'), ctx = cv.getContext('2d');
   const d = document.getElementById('mark-path').getAttribute('d');
   const vb = document.querySelector('#ad-mark').getAttribute('viewBox').split(/\s+/).map(Number);
   const hero = cv.parentElement;
-  let scatterUntil = 0, W, H, dpr, parts = [], shapes = [], shapeIdx = 0, lastSwitch = 0, mouse = {x:-9999, y:-9999}, t0 = performance.now(), raf, fontReady = false;
-  const HOLD = [6500, 4200, 4200]; // ms on mark, word, chart
+  let W, H, dpr, parts = [], shapes = [], shapeIdx = 0, lastSwitch = 0, mouse = {x:-9999, y:-9999}, t0 = performance.now(), raf, center = [0, 0];
+  const HOLD = [7000, 5500]; // ms as the mark, ms as the starry sky
 
   function box(){
     const wide = W >= 900, rtl = document.documentElement.dir === 'rtl';
     const s = (wide ? Math.min(W * .36, H * .7) : Math.min(W * .5, H * .24)) / vb[3];
     const mw = vb[2] * s, mh = vb[3] * s;
     const cx = wide ? W * (rtl ? .28 : .72) : W / 2, cy = wide ? H * .52 : H * .22;
-    return {s, mw, mh, cx, cy, ox: cx - mw / 2, oy: cy - mh / 2, wide};
+    return {s, ox: cx - mw / 2, oy: cy - mh / 2, cx, cy};
   }
-  function sample(draw){
+  function markPoints(){
+    const b = box(); center = [b.cx, b.cy];
     const off = document.createElement('canvas'); off.width = W; off.height = H;
-    const o = off.getContext('2d'); o.fillStyle = '#000'; o.strokeStyle = '#000';
-    draw(o);
+    const o = off.getContext('2d');
+    o.setTransform(b.s, 0, 0, b.s, b.ox - vb[0] * b.s, b.oy - vb[1] * b.s);
+    o.fill(new Path2D(d), 'evenodd');
     const img = o.getImageData(0, 0, W, H).data, pts = [];
     const gap = Math.max(4, Math.round(Math.min(W, H) / 160));
     for (let y = 0; y < H; y += gap) for (let x = 0; x < W; x += gap) if (img[(y * W + x) * 4 + 3] > 128) pts.push([x + (Math.random() - .5) * gap * .6, y + (Math.random() - .5) * gap * .6]);
-    for (let i = pts.length - 1; i > 0; i--){ const k = Math.random() * (i + 1) | 0; [pts[i], pts[k]] = [pts[k], pts[i]]; }
     return pts;
   }
-  function buildShapes(){
-    const b = box();
-    const mark = sample(o => { o.setTransform(b.s, 0, 0, b.s, b.ox - vb[0] * b.s, b.oy - vb[1] * b.s); o.fill(new Path2D(d), 'evenodd'); });
-    const list = [mark];
-    if (fontReady){
-      list.push(sample(o => {
-        const maxW = b.wide ? Math.min(W * .4, b.mw * 1.7) : W * .8;
-        let fs = b.mh * .62; o.font = `700 ${fs}px Amiri, 'Noto Naskh Arabic', serif`;
-        const w = o.measureText('ديوان').width; if (w > maxW){ fs *= maxW / w; o.font = `700 ${fs}px Amiri, 'Noto Naskh Arabic', serif`; }
-        o.textAlign = 'center'; o.textBaseline = 'middle'; o.direction = 'rtl';
-        o.fillText('ديوان', b.cx, b.cy);
-      }));
-    }
-    list.push(sample(o => {
-      const w = b.wide ? Math.min(W * .3, b.mw * 1.25) : W * .72, h = b.mh * .72;
-      const x0 = b.cx - w / 2 + (b.wide ? W * .02 * (document.documentElement.dir === 'rtl' ? -1 : 1) : 0), y0 = b.cy - h / 2;
-      const P = [[0,.92],[.16,.66],[.3,.76],[.48,.44],[.62,.54],[.8,.2],[1,0]].map(([x,y]) => [x0 + x * w, y0 + y * h]);
-      o.lineWidth = Math.max(8, b.mh * .045); o.lineJoin = 'round'; o.lineCap = 'round';
-      o.beginPath(); P.forEach(([x,y], i) => i ? o.lineTo(x,y) : o.moveTo(x,y)); o.stroke();
-      P.forEach(([x,y]) => { o.beginPath(); o.arc(x, y, o.lineWidth * 1.05, 0, 6.283); o.fill(); });
-    }));
-    return list;
+  function starPoints(n){
+    const pts = [];
+    for (let i = 0; i < n; i++) pts.push([Math.random() * W, Math.random() * H]);
+    return pts;
   }
   function assign(){
     const pts = shapes[shapeIdx];
-    parts.forEach((p, i) => { if (!p.home) return; const q = pts[i % pts.length]; p.tx = q[0] + (Math.random() - .5) * 2; p.ty = q[1] + (Math.random() - .5) * 2; });
+    parts.forEach((p, i) => { if (p.home){ const q = pts[i % pts.length]; p.tx = q[0]; p.ty = q[1]; } });
   }
   function init(keep){
     dpr = Math.min(devicePixelRatio || 1, 2);
     W = cv.clientWidth; H = cv.clientHeight;
     cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    shapes = buildShapes(); if (shapeIdx >= shapes.length) shapeIdx = 0;
-    const n = shapes[0].length, ambient = Math.round((W * H) / 9000);
+    const mark = markPoints();
+    shapes = [mark, starPoints(mark.length)];
+    const n = mark.length, ambient = Math.round((W * H) / 9000);
     const old = keep ? parts.filter(p => p.home) : [];
     parts = [];
-    for (let i = 0; i < n; i++){ const o = old[i % (old.length || 1)]; parts.push({x: o ? o.x : Math.random() * W, y: o ? o.y : Math.random() * H, tx: 0, ty: 0, vx: 0, vy: 0, r: Math.random() * 1.2 + .6, a: Math.random() * .5 + .5, ph: Math.random() * 6.28, home: true}); }
-    for (let i = 0; i < ambient; i++) parts.push({x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .15, vy: -Math.random() * .25 - .05, r: Math.random() * 1.1 + .3, a: Math.random() * .35 + .08, ph: Math.random() * 6.28, home: false});
-    assign();
-    if (!keep) t0 = performance.now();
-    lastSwitch = performance.now();
-    if (reduce) { parts.forEach(p => { if (p.home){ p.x = p.tx; p.y = p.ty; } }); draw(performance.now()); }
+    for (let i = 0; i < n; i++){ const o = old[i % (old.length || 1)]; parts.push({x: o ? o.x : Math.random() * W, y: o ? o.y : Math.random() * H, tx: 0, ty: 0, vx: 0, vy: 0, r: Math.random() * 1.2 + .6, a: Math.random() * .5 + .5, ph: Math.random() * 6.28, sp: .4 + Math.random() * 1.4, home: true}); }
+    for (let i = 0; i < ambient; i++) parts.push({x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .15, vy: -Math.random() * .25 - .05, r: Math.random() * 1.1 + .3, a: Math.random() * .35 + .08, ph: Math.random() * 6.28, sp: 1, home: false});
+    if (!keep){ shapeIdx = 0; t0 = performance.now(); }
+    assign(); lastSwitch = performance.now();
+    if (reduce) { shapeIdx = 0; assign(); parts.forEach(p => { if (p.home){ p.x = p.tx; p.y = p.ty; } }); draw(performance.now()); }
   }
-  function morph(next){
+  function go(next, from){
+    if (next === 1) shapes[1] = starPoints(shapes[0].length); // a fresh sky each time
     shapeIdx = next; assign(); lastSwitch = performance.now();
-    parts.forEach(p => { if (p.home){ p.vx += (Math.random() - .5) * 6; p.vy += (Math.random() - .5) * 6; } });
+    if (next === 1){ // burst outward from the mark (or the click point)
+      const c = from || center;
+      parts.forEach(p => { if (p.home){ const dx = p.x - c[0], dy = p.y - c[1], m = Math.hypot(dx, dy) || 1, f = 5 + Math.random() * 6; p.vx += dx / m * f; p.vy += dy / m * f; } });
+    }
   }
   function draw(t){
     ctx.clearRect(0, 0, W, H);
-    if (!reduce && shapes.length > 1 && t - lastSwitch > HOLD[shapeIdx] ) morph((shapeIdx + 1) % shapes.length);
-    const k = Math.min(1, (t - t0) / 2600), ease = 1 - Math.pow(1 - k, 3), sc = t < scatterUntil, pull = sc ? .006 : .012 + ease * .05, damp = sc ? .94 : .86;
+    const since = t - lastSwitch;
+    if (!reduce && since > HOLD[shapeIdx]) go(shapeIdx ? 0 : 1);
+    // first load gathers in; after that every transition starts loose and tightens slowly (about 3.5 s)
+    const intro = Math.min(1, (t - t0) / 2600), r = Math.min(1, since / 3500), ease = r * r * (3 - 2 * r);
+    const pull = shapeIdx === 1 ? .004 + ease * .012 : Math.min(.012 + intro * .05, .003 + ease * .059);
+    const damp = shapeIdx === 1 ? .95 : .88;
+    const sky = shapeIdx === 1;
     for (const p of parts){
       if (p.home){
-        p.vx = (p.vx + (p.tx + Math.sin(t / 900 + p.ph) * 1.2 - p.x) * pull) * damp;
-        p.vy = (p.vy + (p.ty + Math.cos(t / 1100 + p.ph) * 1.2 - p.y) * pull) * damp;
+        const wob = sky ? 3 : 1.2;
+        p.vx = (p.vx + (p.tx + Math.sin(t / 900 + p.ph) * wob - p.x) * pull) * damp;
+        p.vy = (p.vy + (p.ty + Math.cos(t / 1100 + p.ph) * wob - p.y) * pull) * damp;
       } else if (p.y < -5) { p.y = H + 5; p.x = Math.random() * W; }
       const dx = p.x - mouse.x, dy = p.y - mouse.y, dist = dx * dx + dy * dy, R = 110;
       if (dist < R * R){ const m = Math.sqrt(dist) || 1, f = (1 - m / R) * 3.2; p.vx += dx / m * f; p.vy += dy / m * f; }
       p.x += p.vx; p.y += p.vy;
       if (!p.home){ p.vx *= .98; p.vy = p.vy * .98 - .004; }
-      const tw = .65 + Math.sin(t / 600 + p.ph) * .35;
+      // twinkle: gentle as the mark, deeper and slower in the sky
+      const tw = sky && p.home ? .35 + .65 * Math.pow((Math.sin(t / (500 / p.sp) + p.ph) + 1) / 2, 2) : .65 + Math.sin(t / 600 + p.ph) * .35;
       ctx.globalAlpha = p.a * (p.home ? tw : tw * .8);
       ctx.fillStyle = p.home && p.ph > 3 ? '#E8D19E' : '#CFA960';
       ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
@@ -813,15 +833,11 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     ctx.globalAlpha = 1;
     if (!reduce) raf = requestAnimationFrame(draw);
   }
-  // click to scatter (ignores clicks on buttons/links)
+  // click: scatter into the sky from the click point, or call the mark back
   hero.addEventListener('click', e => {
     if (reduce || e.target.closest('a,button')) return;
-    const r = cv.getBoundingClientRect(), cx = e.clientX - r.left, cy = e.clientY - r.top;
-    for (const p of parts){
-      const dx = p.x - cx, dy = p.y - cy, m = Math.hypot(dx, dy) || 1, f = 22 * Math.exp(-m / 380) + 3;
-      p.vx += dx / m * f + (Math.random() - .5) * 4; p.vy += dy / m * f + (Math.random() - .5) * 4;
-    }
-    scatterUntil = performance.now() + 900; lastSwitch = performance.now(); // hold the current shape a little longer after a scatter
+    const r = cv.getBoundingClientRect();
+    shapeIdx === 0 ? go(1, [e.clientX - r.left, e.clientY - r.top]) : go(0);
   });
   hero.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
   hero.addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
@@ -829,9 +845,6 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   addEventListener('langchange', () => { cancelAnimationFrame(raf); init(true); if (!reduce) raf = requestAnimationFrame(draw); });
   new IntersectionObserver(([e]) => { cancelAnimationFrame(raf); if (e.isIntersecting && !reduce) raf = requestAnimationFrame(draw); }).observe(hero);
   init();
-  // add the Arabic word shape once Amiri has loaded (falls back to a system Arabic font after 2.5 s)
-  const addWord = () => { if (fontReady) return; fontReady = true; shapes = buildShapes(); };
-  if (document.fonts && document.fonts.load){ document.fonts.load("700 80px Amiri", 'ديوان').then(addWord, addWord); setTimeout(addWord, 2500); } else addWord();
 })();
 
 // initial language
