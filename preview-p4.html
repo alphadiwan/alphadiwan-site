@@ -418,7 +418,7 @@ html[lang=ar] .brand .wm-ar{display:inline}
 html[lang=ar] h1,html[lang=ar] .h2,html[lang=ar] .card h3,html[lang=ar] .final h2,html[lang=ar] .opt-t,html[lang=ar] .deb-q,html[lang=ar] #lit,html[lang=ar] .ep h3{font-weight:300}
 html[lang=ar] em,html[lang=ar] i,html[lang=ar] .opt-or{font-style:normal}
 
-@media(min-width:901px){.hero-inner{padding-top:104px;padding-bottom:70px}.hero h1{font-size:clamp(3.4rem,6.4vw,6.6rem)}.hero .sub{max-width:46ch;margin-top:22px}.hero-cta{margin-top:30px}html[lang=ar] .hero h1{font-size:clamp(3rem,5.6vw,5.4rem)}}
+@media(min-width:901px){.hero-inner{padding-top:104px;padding-bottom:70px}.hero h1{font-size:clamp(3.4rem,6.4vw,6.6rem)}.hero .sub{max-width:46ch;margin-top:22px}.hero-cta{margin-top:30px}html[lang=ar] .hero h1{font-size:clamp(2.8rem,4.4vw,4.4rem)}}
 .hero-row{margin-top:34px!important}
 /* media layer: hero row, issue line, episode numbers, on-air dot */
 .hero-row{margin-top:46px;display:grid;grid-template-columns:1.15fr 1fr;gap:14px;max-width:660px;opacity:0;animation:fade 1s 1.5s forwards;pointer-events:auto}
@@ -474,6 +474,7 @@ html[lang=ar] .hr-k,html[lang=ar] .epn{letter-spacing:0;font-size:.78rem;text-tr
 .dusk{position:fixed;inset:0;z-index:60;pointer-events:none;mix-blend-mode:soft-light;background:linear-gradient(180deg,rgba(223,186,106,var(--dusk,.22)),rgba(255,120,60,0) 60%);transition:background .2s}
 .night{position:fixed;inset:0;z-index:59;pointer-events:none;background:rgba(5,4,10,var(--night,0))}
 @media (prefers-reduced-motion:reduce){.dusk,.night{display:none}}
+html[lang=ar] #lit .w,html[lang=ar] #lit .g,html[lang=ar] .w.g.lit{font-style:normal!important}
 /* trading ticker */
 .marquee{padding:0;height:40px;display:flex;align-items:center;background:var(--abyss);border-top:1px solid rgba(198,163,89,.28);border-bottom:1px solid rgba(198,163,89,.28)}
 .marquee .track{animation:slide 80s linear infinite;align-items:center}
@@ -516,8 +517,8 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
     <div class="hero-sadu" aria-hidden="true"></div><div class="hero-sadu-h" aria-hidden="true"></div>
     <div class="wrap hero-inner">
       <span class="kicker hero-k" id="issueK">Issue 01</span>
-      <h1><span class="line"><span data-i18n="h1a">Marhaba.</span></span><span class="line"><span><em class="gold-text" data-i18n="h1b">Let's talk money.</em></span></span></h1>
-      <p class="sub" data-i18n="heroSub">Investing, markets and business, talked through openly in Arabic and English. Whether you're just starting out or have been investing for years, there's a seat for you.</p>
+      <h1><span class="line"><span data-i18n="h1a">Marhaba!</span></span><span class="line"><span><em class="gold-text" data-i18n="h1b">Let's talk money &amp; markets.</em></span></span></h1>
+      <p class="sub" data-i18n="heroSub">A modern forum for investing, deals and business. In English and Arabic.</p>
       <div class="hero-cta">
         <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-i18n="ctaWatch">Watch on YouTube</span></a>
         <a class="btn btn-ghost mag" href="#news" data-to="news" data-i18n="ctaNews">Join the newsletter</a>
@@ -545,7 +546,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
         <div class="def-type" data-i18n="defType">noun</div>
         <p data-i18n="defP">The room in a Gulf home where guests gather. Someone pours the coffee, someone brings the news, and everyone has an opinion.</p>
       </div>
-      <p id="lit" data-i18n="lit">Long before podcasts and group chats, the Gulf talked money <span class="g">in the diwan.</span> Land, trade, the price of oil, who's building what. We're keeping that conversation going, <span class="g">with room for everyone.</span></p>
+      <p id="lit" data-i18n="lit">In the Gulf, the diwan is where people gather to talk, share news and learn from each other. <span class="g">Alpha Diwan is the modern version:</span> discussions, explainers, tools and resources on money and markets, <span class="g">all a tap away.</span></p>
     </div>
   </section>
 
@@ -597,8 +598,8 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
         </div>
         <a class="card c-tpl reveal d1" id="tpl" href="#" data-store-link>
           <div class="top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 10v10"/></svg></span><span class="status" data-i18n="sTpl">Launching soon</span></div>
-          <div class="fan" aria-hidden="true"><div class="cov" data-i18n="cv1">LBO Model</div><div class="cov" data-i18n="cv2">Real Estate Feasibility</div><div class="cov" data-i18n="cv3">Private Credit</div></div>
-          <div><h3><em data-i18n="tplH">Templates</em></h3><p data-i18n="tplP">The spreadsheets we actually use, cleaned up for you. For real estate, private equity and private credit.</p><span class="go" data-i18n="tplGo">Get notified</span></div>
+          <div class="fan" aria-hidden="true"><div class="cov" data-i18n="cv1">Pitch Deck</div><div class="cov" data-i18n="cv2">DCF, Step by Step</div><div class="cov" data-i18n="cv3">IRR Exercises</div></div>
+          <div><h3><em data-i18n="tplH">The toolkit</em></h3><p data-i18n="tplP">Spreadsheets, pitch decks and models for finance and investment work, made for young professionals. Plus hands-on tutorials, like building a DCF step by step or working through IRR exercises.</p><span class="go" data-i18n="tplGo">Get notified</span></div>
         </a>
         <div class="card c-soc reveal">
           <div class="txt"><div class="top" style="justify-content:flex-start;gap:16px"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.2 10.8 7.6-3.6M8.2 13.2l7.6 3.6"/></svg></span><span class="status live">@alphadiwan</span></div>
@@ -621,7 +622,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
   <!-- EPISODES -->
   <section id="episodes" class="rail-sec">
     <div class="wrap rail-head">
-      <div><span class="kicker reveal" data-n="III" data-i18n="eK">Coming up</span><h2 class="h2 reveal d1" data-i18n="eH">What we're talking about <em class="gold-text">next.</em></h2></div>
+      <div><span class="kicker reveal" data-n="III" data-i18n="eK">Coming up</span><h2 class="h2 reveal d1" data-i18n="eH">What we're <em class="gold-text">discussing.</em></h2></div>
       <div class="rail-ctrl reveal d2"><button type="button" id="prev" aria-label="Previous">←</button><button type="button" id="next" aria-label="Next">→</button></div>
     </div>
     <div class="rail" id="rail">
@@ -650,7 +651,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
     <div class="rings" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
     <div class="wrap">
       <svg class="mark reveal" viewBox="0 0 1503.0 1615.0" aria-hidden="true"><use href="#ad-mark"/></svg>
-      <h2 class="reveal d1" data-i18n="cH">There's always a seat <em class="gold-text">for you.</em></h2>
+      <h2 class="reveal d1" data-i18n="cH">See you <em class="gold-text">again soon.</em></h2>
       <div class="hero-cta reveal d3">
         <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-i18n="ctaWatch2">Watch on YouTube</span></a>
         <a class="btn btn-ghost mag" href="#news" data-to="news" data-i18n="ctaNews2">Join the newsletter</a>
@@ -681,31 +682,31 @@ const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 // ===== i18n =====
 const AR = {
   nav1:'شاهد · استمع · اقرأ', nav2:'على الطاولة', nav3:'الحلقات', nav4:'من نحن', navCta:'اشترك',
-  heroK:'الاستثمار · الصفقات · الاستراتيجية', h1a:'مرحبا.', h1b:'خلّنا نسولف عن المال.',
-  heroSub:'الاستثمار والأسواق والأعمال، نسولف عنها بصراحة بالعربي والإنجليزي. سواء توّك تبدأ أو لك سنين تستثمر، مكانك محفوظ.',
+  heroK:'الاستثمار · الصفقات · الاستراتيجية', h1a:'مرحبا!', h1b:'خلّنا نسولف عن الفلوس والأسواق.',
+  heroSub:'منصة حديثة للنقاش في الاستثمار والصفقات والأعمال. بالعربي والإنجليزي.',
   ctaWatch:'شاهد على يوتيوب', ctaNews:'اشترك في النشرة', ctaWatch2:'شاهد على يوتيوب', ctaNews2:'اشترك في النشرة',
   defType:'اسم', defP:'المجلس اللي يجتمع فيه الضيوف. واحد يصبّ القهوة، وواحد يجيب العلوم، والكل عنده رأي.',
-  lit:'قبل البودكاست وقروبات الواتساب، كان أهل الخليج يسولفون عن المال <span class="g">في الديوان.</span> الأراضي والتجارة وسعر النفط ومن يبني وش. واحنا نكمّل هالسالفة، <span class="g">في مجلس يتّسع للكل.</span>',
+  lit:'في الخليج، الديوان هو المكان اللي يجتمع فيه الناس يسولفون ويتبادلون العلوم ويتعلّمون من بعض. <span class="g">وألفا ديوان هو الديوان بنسخته الحديثة:</span> نقاشات وشروحات وأدوات ومصادر عن الفلوس والأسواق، <span class="g">كلها بضغطة زر.</span>',
   fK:'شاهد · استمع · اقرأ', fH:'اختار <em class="gold-text">مكانك.</em>', fP:'شوف فيديو الأسبوع، أو اسمع السوالف الطويلة، أو اقرأ الرسالة مع قهوة الصبح. على راحتك.',
   sYt:'يوتيوب', ytH:'الشروحات', ytP:'كل أسبوع موضوع واحد، نشرحه ببساطة في حوالي ١٢ دقيقة. أسواق وصفقات والأفكار اللي وراها.', ytGo:'اشترك على يوتيوب',
   sPod:'في 2027', podH:'الديوانية', podP:'بودكاستنا، على اسم جلسات المساء. سوالف طويلة ورايقة مع مستثمرين ومؤسسين وناس جرّبوا بنفسهم.',
   sNews:'أسبوعية', newsH:'سجل الضيوف', newsP:'خلّ إيميلك ونرسل لك رسالة وحدة كل أسبوع: صفقة الكل يتكلم عنها، ورسم يستاهل تحفظه، وفكرة تفكّر فيها.',
-  sTpl:'قريباً', tplH:'النماذج', tplP:'الجداول اللي نستخدمها فعلاً، رتّبناها لك. للعقار والملكية الخاصة والائتمان الخاص.', tplGo:'أعلمني عند الإطلاق',
+  sTpl:'قريباً', tplH:'الأدوات', tplP:'جداول وعروض تقديمية ونماذج مالية تساعد الشباب في عالم المالية والاستثمار. ومعها شروحات عملية، مثل بناء نموذج التدفقات النقدية المخصومة خطوة بخطوة، أو تمارين على حساب العائد الداخلي.', tplGo:'أعلمني عند الإطلاق',
   socH:'التواصل الاجتماعي', socP:'لقطات سريعة طول الأسبوع، لما يكون عندك دقيقة.',
   dK:'على الطاولة', dH:'سؤال <em>هالأسبوع.</em>', dQ:'خلال العشر سنين الجاية، وش تفضّل تملك؟',
   dA:'العقار', dAc:'شي تشوفه وتلمسه، وإيجار يدخل كل شهر، وتقدر تموّل عليه.', dB:'الأسهم المدرجة', dBc:'سهلة البيع والشراء، موزّعة على شركات كثيرة، وتكبر بهدوء مع السنين.',
   vs:'أم', dNote:'الكل له صوت. اختار جهة وشوف وين يميل المجلس.',
-  eK:'قريباً', eH:'وش <em class="gold-text">سالفتنا الجاية؟</em>',
+  eK:'قريباً', eH:'المواضيع <em class="gold-text">اللي نناقشها.</em>',
   tMkt:'الأسواق', tFund:'أساسيات', tExp:'شرح', tExp2:'شرح', tIf:'تمويل إسلامي', tPod:'الديوانية · بودكاست',
   e1:'عقارات دبي: بين 2008 واليوم', e2:'معدل العائد الداخلي: ما يكشفه وما يخفيه', e3:'الملكية الخاصة ببساطة', e4:'الصكوك مقابل السندات', e5:'ما هو الائتمان الخاص؟', e6:'داخل المكتب العائلي',
   ep1:'الحلقة 01', ep2:'الحلقة 02', ep3:'الحلقة 03', ep4:'الحلقة 04', ep5:'الحلقة 05', epPod:'بودكاست', soon:'قريباً',
   aK:'أهل الديوان', aH:'لكل ديوانٍ <em class="gold-text">أهله.</em>',
   aP:'أهل ديواننا قضوا سنين في أسواق المنطقة. نخلّي الكلام واضح وصريح ومفتوح لكل الآراء، ودايماً نرجع للأساسيات إذا احتجت.',
-  cH:'حيّاك <em class="gold-text">في الديوان.</em>',
+  cH:'حيّاكم <em class="gold-text">في أي وقت.</em>',
   nv1k:'٠١', nv1:'صفقة واحدة', nv2k:'٠٢', nv2:'رسم بياني واحد', nv3k:'٠٣', nv3:'فكرة واحدة',
   badge:'جديد كل أسبوع · بالعربية والإنجليزية · جديد كل أسبوع · بالعربية والإنجليزية · ',
   th1:'الأسواق', th1t:'عقارات دبي: 2008 واليوم', th2:'شرح', th2t:'الملكية الخاصة ببساطة', th3:'أساسيات', th3t:'العائد الداخلي ببساطة',
-  cv1:'نموذج الاستحواذ بالرافعة المالية', cv2:'دراسة جدوى عقارية', cv3:'الائتمان الخاص', shorts:'شورتس', copy:'ألفا ديوان',
+  cv1:'عرض للمستثمرين', cv2:'التدفقات المخصومة خطوة بخطوة', cv3:'تمارين العائد الداخلي', shorts:'شورتس', copy:'ألفا ديوان',
   otK:'على الطاولة', upK:'الحلقة القادمة · ٠١', upM:'١٢ دقيقة · تُعرض هذا الشهر',
   legal:'تنشر ألفا ديوان محتوى تعليمياً فقط، ولا يُعدّ أي شيء في هذا الموقع أو في الفيديوهات أو البودكاست أو النشرة أو النماذج نصيحةً استثمارية أو قانونية أو ضريبية.'
 };
@@ -972,7 +973,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     const wide = W >= 900, rtl = document.documentElement.dir === 'rtl';
     const V = Math.min(H, innerHeight || H), s = (wide ? Math.min(W * .3, V * .46) : Math.min(W * .42, V * .2)) / vb[3];
     const mw = vb[2] * s, mh = vb[3] * s;
-    const cx = wide ? W * (rtl ? .28 : .72) : W / 2, cy = wide ? Math.max(V * .56, 96 + mh * 1.02) : Math.max(V * .25, 96 + mh * .95);
+    const cx = wide ? W * (rtl ? .23 : .74) : W / 2, cy = wide ? Math.max(V * .56, 96 + mh * 1.02) : Math.max(V * .25, 96 + mh * .95);
     const ah = mh * 1.9, aw = mh * 1.5, st = hero.style;
     st.setProperty('--ax', cx + 'px'); st.setProperty('--ay', (cy - mh * 1.02) + 'px'); st.setProperty('--aw', aw + 'px'); st.setProperty('--ah', ah + 'px');
     return {s, ox: cx - mw / 2, oy: cy - mh / 2, cx, cy};
