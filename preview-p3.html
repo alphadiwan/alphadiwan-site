@@ -418,7 +418,7 @@ html[lang=ar] .brand .wm-ar{display:inline}
 html[lang=ar] h1,html[lang=ar] .h2,html[lang=ar] .card h3,html[lang=ar] .final h2,html[lang=ar] .opt-t,html[lang=ar] .deb-q,html[lang=ar] #lit,html[lang=ar] .ep h3{font-weight:300}
 html[lang=ar] em,html[lang=ar] i,html[lang=ar] .opt-or{font-style:normal}
 
-@media(min-width:901px){.hero-inner{padding-top:104px;padding-bottom:70px}.hero h1{font-size:clamp(3.4rem,6.4vw,6.6rem)}.hero .sub{max-width:46ch;margin-top:22px}.hero-cta{margin-top:30px}html[lang=ar] .hero h1{font-size:clamp(2.8rem,4.4vw,4.4rem)}}
+@media(min-width:901px){.hero-inner{padding-top:104px;padding-bottom:70px}.hero h1{font-size:clamp(3.2rem,5.6vw,6rem)}.hero .sub{max-width:46ch;margin-top:22px}.hero-cta{margin-top:30px}html[lang=ar] .hero h1{font-size:clamp(2.8rem,4.4vw,4.4rem)}}
 .hero-row{margin-top:34px!important}
 /* media layer: hero row, issue line, episode numbers, on-air dot */
 .hero-row{margin-top:46px;display:grid;grid-template-columns:1.15fr 1fr;gap:14px;max-width:660px;opacity:0;animation:fade 1s 1.5s forwards;pointer-events:auto}
@@ -518,7 +518,7 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
     <div class="wrap hero-inner">
       <span class="kicker hero-k" id="issueK">Issue 01</span>
       <h1><span class="line"><span data-i18n="h1a">Marhaba!</span></span><span class="line"><span><em class="gold-text" data-i18n="h1b">Let's talk money &amp; markets.</em></span></span></h1>
-      <p class="sub" data-i18n="heroSub">A modern forum for investing, deals and business. In English and Arabic.</p>
+      <p class="sub" data-i18n="heroSub">A modern forum for investing, deals and business.</p>
       <div class="hero-cta">
         <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-i18n="ctaWatch">Watch on YouTube</span></a>
         <a class="btn btn-ghost mag" href="#news" data-to="news" data-i18n="ctaNews">Join the newsletter</a>
@@ -683,7 +683,7 @@ const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 const AR = {
   nav1:'شاهد · استمع · اقرأ', nav2:'على الطاولة', nav3:'الحلقات', nav4:'من نحن', navCta:'اشترك',
   heroK:'الاستثمار · الصفقات · الاستراتيجية', h1a:'مرحبا!', h1b:'خلّنا نسولف عن الفلوس والأسواق.',
-  heroSub:'منصة حديثة للنقاش في الاستثمار والصفقات والأعمال. بالعربي والإنجليزي.',
+  heroSub:'منصة حديثة للنقاش في الاستثمار والصفقات والأعمال.',
   ctaWatch:'شاهد على يوتيوب', ctaNews:'اشترك في النشرة', ctaWatch2:'شاهد على يوتيوب', ctaNews2:'اشترك في النشرة',
   defType:'اسم', defP:'المجلس اللي يجتمع فيه الضيوف. واحد يصبّ القهوة، وواحد يجيب العلوم، والكل عنده رأي.',
   lit:'في الخليج، الديوان هو المكان اللي يجتمع فيه الناس يسولفون ويتبادلون العلوم ويتعلّمون من بعض. <span class="g">وألفا ديوان هو الديوان بنسخته الحديثة:</span> نقاشات وشروحات وأدوات ومصادر عن الفلوس والأسواق، <span class="g">كلها بضغطة زر.</span>',
@@ -973,7 +973,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     const wide = W >= 900, rtl = document.documentElement.dir === 'rtl';
     const V = Math.min(H, innerHeight || H), s = (wide ? Math.min(W * .3, V * .46) : Math.min(W * .42, V * .2)) / vb[3];
     const mw = vb[2] * s, mh = vb[3] * s;
-    const cx = wide ? W * (rtl ? .23 : .74) : W / 2, cy = wide ? Math.max(V * .56, 96 + mh * 1.02) : Math.max(V * .25, 96 + mh * .95);
+    const cx = wide ? W * (rtl ? .23 : .77) : W / 2, cy = wide ? Math.max(V * .56, 96 + mh * 1.02) : Math.max(V * .25, 96 + mh * .95);
     const ah = mh * 1.9, aw = mh * 1.5, st = hero.style;
     st.setProperty('--ax', cx + 'px'); st.setProperty('--ay', (cy - mh * 1.02) + 'px'); st.setProperty('--aw', aw + 'px'); st.setProperty('--ah', ah + 'px');
     return {s, ox: cx - mw / 2, oy: cy - mh / 2, cx, cy};
