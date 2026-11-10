@@ -552,6 +552,25 @@ html[lang=ar] .teaser .t-q{font-style:normal;font-size:1rem}
 @keyframes steam{0%{opacity:0;transform:translateY(4px)}35%{opacity:.85}100%{opacity:0;transform:translateY(-6px)}}
 .teaser:hover .shake-loop{animation-duration:1.2s}
 @media (prefers-reduced-motion:reduce){.teaser .t-fj,.teaser .st{animation:none}}
+</style><style>
+.contact{background:linear-gradient(180deg,var(--abyss),var(--deep))}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:44px}}
+.ct-mail{margin-top:26px;color:var(--ivory-dim);font-size:.95rem}
+.ct-mail a{color:var(--gold-soft);border-bottom:1px solid rgba(184,67,58,.5)}
+.ct-form{display:flex;flex-direction:column;gap:18px;padding:34px;border-radius:24px;border:1px solid rgba(184,67,58,.22);background:rgba(12,9,9,.45)}
+.ct-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:640px){.ct-row{grid-template-columns:1fr}.ct-form{padding:24px}}
+.ct-form label{display:flex;flex-direction:column;gap:8px;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+html[lang=ar] .ct-form label{letter-spacing:0;font-size:.85rem}
+.ct-form input,.ct-form select,.ct-form textarea{font:inherit;font-size:1rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--ivory);background:rgba(239,226,199,.04);border:1px solid rgba(239,226,199,.14);border-radius:12px;padding:13px 15px;outline:none;transition:border-color .25s,background .25s;resize:vertical}
+.ct-form select{appearance:none;padding-inline-end:42px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23C04A40' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-size:12px 8px;background-position:right 16px center;background-repeat:no-repeat}
+html[dir=rtl] .ct-form select{background-position:left 16px center}
+.ct-form select option{background:#1B1414;color:var(--ivory)}
+.ct-form input:focus,.ct-form select:focus,.ct-form textarea:focus{border-color:var(--gold);background:rgba(184,67,58,.06)}
+.ct-form .btn{align-self:flex-start;margin-top:6px}
+.ct-form{position:relative}.ct-form .hp{position:absolute;width:1px;height:1px;margin:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.ct-status{min-height:1.2em;margin:0;font-size:.92rem;color:var(--gold-soft)}
 </style></head>
 <body>
 <div class="dusk" aria-hidden="true"></div><div class="night" aria-hidden="true"></div>
@@ -564,7 +583,7 @@ html[lang=ar] .teaser .t-q{font-style:normal;font-size:1rem}
   <div class="wrap nav-inner">
     <a href="#top" class="brand" aria-label="Alpha Diwan home"><svg class="mark" viewBox="0 0 1503.0 1615.0"><use href="#ad-mark"/></svg><i></i><span class="wm-en">alpha diwan</span><span class="wm-ar" lang="ar">ألفا ديوان</span></a>
     <nav class="links" aria-label="Primary">
-      <a href="#debate" data-i18n="nav2">Current topic</a><a href="#channels" data-i18n="nav1">Content</a><a href="#episodes" data-i18n="nav3">Upcoming</a><a href="#about" data-i18n="nav4">About</a>
+      <a href="#debate" data-i18n="nav2">Current debate</a><a href="#channels" data-i18n="nav1">Content</a><a href="#episodes" data-i18n="nav3">Upcoming</a><a href="#about" data-i18n="nav4">About</a><a href="#contact" data-i18n="nav5">Contact</a>
     </nav>
     <div class="nav-right">
       <button class="lang" id="langBtn" type="button" aria-label="Switch language">عربي</button>
@@ -586,7 +605,7 @@ html[lang=ar] .teaser .t-q{font-style:normal;font-size:1rem}
         <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><span class="ic play"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span><span data-i18n="ctaWatch">Watch our explainers</span></a>
         <a class="btn btn-ghost mag" href="#news" data-to="news"><span class="ic mail"><svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path class="flap" d="m4.5 7.5 7.5 5.5 7.5-5.5"/></svg></span><span data-i18n="ctaNews">Join the newsletter</span><span class="arr" aria-hidden="true">→</span></a>
       </div>
-    <a class="teaser" href="#debate" data-to="debate"><svg class="t-fj steam" viewBox="0 -14 40 44"><path class="st s1" d="M15 0c-3-4 3-6 0-11"/><path class="st s2" d="M22 0c-3-4 3-6 0-11"/><path d="M6 6h28l-3.2 15.5A7 7 0 0 1 24 27h-8a7 7 0 0 1-6.8-5.5z"/></svg><span class="t-k" data-i18n="teaserK">Current topic</span> <span class="t-q" id="teaserQ"></span> <span class="t-go" data-i18n="teaserGo">Cast your vote ↓</span></a>
+    <a class="teaser" href="#debate" data-to="debate"><svg class="t-fj steam" viewBox="0 -14 40 44"><path class="st s1" d="M15 0c-3-4 3-6 0-11"/><path class="st s2" d="M22 0c-3-4 3-6 0-11"/><path d="M6 6h28l-3.2 15.5A7 7 0 0 1 24 27h-8a7 7 0 0 1-6.8-5.5z"/></svg><span class="t-k" data-i18n="teaserK">Current debate</span> <span class="t-q" id="teaserQ"></span> <span class="t-go" data-i18n="teaserGo">Cast your vote ↓</span></a>
     </div>
     <div class="scroll-cue"><i></i></div>
   </section>
@@ -598,9 +617,9 @@ html[lang=ar] .teaser .t-q{font-style:normal;font-size:1rem}
   <!-- DEBATE (light) -->
   <section id="debate" class="debate">
     <div class="wrap">
-      <div class="sec-bar reveal"><b class="sb-n" data-i18n="sn1">I</b><span class="sb-l" data-i18n="dK">Current topic</span><i class="sb-r"></i></div>
+      <div class="sec-bar reveal"><b class="sb-n" data-i18n="sn1">I</b><span class="sb-l" data-i18n="dK">Current debate</span><i class="sb-r"></i></div>
       <div class="deb-head">
-        <h2 class="h2 reveal d1" data-i18n="dH">This week's <em>question.</em></h2>
+        <h2 class="h2 reveal d1" data-i18n="dH">This week's <em>debate.</em></h2>
       </div>
       <div class="deb-q reveal d2" data-i18n="dQ">Over the next ten years, which would you rather own?</div>
       <div class="deb-opts reveal d3" id="debOpts">
@@ -692,6 +711,38 @@ html[lang=ar] .teaser .t-q{font-style:normal;font-size:1rem}
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap"><div class="sec-bar reveal"><b class="sb-n" data-i18n="sn5">V</b><span class="sb-l" data-i18n="cK">Contact</span><i class="sb-r"></i></div></div>
+    <div class="wrap contact-grid">
+      <div>
+        <h2 class="h2 reveal d1" data-i18n="ctH">Get in <em class="gold-text">touch.</em></h2>
+        <p class="about-p reveal d2" data-i18n="ctP">Comments, feedback, an interview request or a meeting. Send us a note and we'll get back to you.</p>
+        <p class="ct-mail reveal d2"><span data-i18n="ctOr">Or email us directly at</span> <a href="mailto:hala@alphadiwan.com">hala@alphadiwan.com</a></p>
+      </div>
+      <form class="ct-form reveal d2" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="ctForm">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hp"><label>Leave this empty <input name="bot-field"></label></p>
+        <div class="ct-row">
+          <label><span data-i18n="fName">Name</span><input name="name" required autocomplete="name"></label>
+          <label><span data-i18n="fEmail">Email</span><input name="email" type="email" required autocomplete="email"></label>
+        </div>
+        <label><span data-i18n="fTopic">What's it about?</span>
+          <select name="topic" required>
+            <option value="Feedback" data-i18n="o1">Comments or feedback</option>
+            <option value="Interview or media" data-i18n="o2">Interview or media</option>
+            <option value="Meeting" data-i18n="o3">Setting up a meeting</option>
+            <option value="Collaboration" data-i18n="o4">Collaboration or partnership</option>
+            <option value="Other" data-i18n="o5">Something else</option>
+          </select></label>
+        <label><span data-i18n="fMsg">Message</span><textarea name="message" rows="5" required></textarea></label>
+        <button type="submit" class="btn mag"><span data-i18n="fSend">Send message</span></button>
+        <p class="ct-status" id="ctStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+
   <!-- FINAL -->
   <section class="final grain">
     <div class="rings" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
@@ -727,7 +778,7 @@ const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 
 // ===== i18n =====
 const AR = {
-  nav1:'المحتوى', nav2:'الموضوع الحالي', nav3:'القادم', nav4:'عنّا', navCta:'اشترك', heroLine:'ألفا ديوان يجمع المعاني الثلاثة في منصة رقمية واحدة نتعلّم فيها ونسولف عن البزنس والأسواق والصفقات والاستثمار.', teaserK:'الموضوع الحالي', teaserGo:'صوّت ↓',  bg1:'د', bg2:'٪', bg3:'م', bg4:'ص', bg5:'ا', bg6:'د', sn1:'١', sn2:'٢', sn3:'٣', sn4:'٤',
+  nav1:'المحتوى', nav2:'النقاش الحالي', nav3:'القادم', nav4:'عنّا', navCta:'اشترك', nav5:'تواصل', sn5:'٥', cK:'تواصل معنا', ctH:'تواصل <em class="gold-text">معنا.</em>', ctP:'ملاحظات، اقتراحات، طلب مقابلة أو اجتماع. أرسل لنا رسالة ونرد عليك.', ctOr:'أو راسلنا مباشرة على', fName:'الاسم', fEmail:'الإيميل', fTopic:'عن وش رسالتك؟', o1:'ملاحظات أو اقتراحات', o2:'مقابلة أو إعلام', o3:'ترتيب اجتماع', o4:'تعاون أو شراكة', o5:'شي ثاني', fMsg:'الرسالة', fSend:'أرسل الرسالة',  heroLine:'ألفا ديوان يجمع المعاني الثلاثة في منصة رقمية واحدة نتعلّم فيها ونسولف عن البزنس والأسواق والصفقات والاستثمار.', teaserK:'النقاش الحالي', teaserGo:'صوّت ↓',  bg1:'د', bg2:'٪', bg3:'م', bg4:'ص', bg5:'ا', bg6:'د', sn1:'١', sn2:'٢', sn3:'٣', sn4:'٤',
   heroK:'الاستثمار · الصفقات · الاستراتيجية', h1a:'مرحبا!', h1b:'خلّ نتكلم عن البزنس.',
   heroSub:'منصة حديثة للنقاش في الاستثمار والصفقات والأعمال.',
   ctaWatch:'شاهد الشروحات', ctaNews:'اشترك في النشرة', ctaWatch2:'شاهد الشروحات', ctaNews2:'اشترك في النشرة',
@@ -739,7 +790,7 @@ const AR = {
   sNews:'دورية', newsH:'الرسائل', newsP:'اشترك واستلم رسائلنا الدورية: صفقة الكل يتكلم عنها، ورسم بياني يستاهل تحفظه، وفكرة تفكّر فيها.',
   sTpl:'قريباً', tplH:'الأدوات', tplP:'جداول وعروض تقديمية ونماذج مالية للشغل في المالية والاستثمار، مصمّمة للشباب في بداية مشوارهم. ومعها شروحات عملية، مثل بناء نموذج التدفقات النقدية المخصومة خطوة بخطوة، أو تمارين على معدل العائد الداخلي.', tplGo:'نبّهني عند الإطلاق',
   socH:'التواصل الاجتماعي', socP:'لقطات سريعة طول الأسبوع، لما يكون عندك دقيقة.',
-  dK:'الموضوع الحالي', dH:'سؤال <em>هالأسبوع.</em>', dQ:'خلال العشر سنين الجاية، وش تفضّل تملك؟',
+  dK:'النقاش الحالي', dH:'نقاش <em>هالأسبوع.</em>', dQ:'خلال العشر سنين الجاية، وش تفضّل تملك؟',
   dA:'العقار', dAc:'شي تشوفه وتلمسه، وإيجار يدخل كل شهر، وتقدر تقترض بضمانه.', dB:'الأسهم المدرجة', dBc:'سهلة البيع والشراء، موزّعة على شركات كثيرة، وتكبر بهدوء مع السنين.',
   vs:'ولا', dNote:'الكل له صوت. اختار طرف وشوف وين يميل المجلس.',
   eK:'القادم', eH:'المواضيع <em class="gold-text">اللي نناقشها.</em>',
@@ -1117,5 +1168,13 @@ if (saved === 'ar') setLang('ar'); else { buildMarquee(); splitLit(); onScroll()
 (function(){function upd(){var ar=document.documentElement.lang==='ar',D=ar?AR:EN,a=(D.dA||'').replace(/<[^>]+>/g,''),b=(D.dB||'').replace(/<[^>]+>/g,'');
 if(!ar)b=b.charAt(0).toLowerCase()+b.slice(1);document.getElementById('teaserQ').textContent=ar?(a+' ولا '+b+'؟'):(a+' or '+b+'?');}
 addEventListener('langchange',upd);setTimeout(upd,50);})();
+</script><script>
+(function(){var f=document.getElementById('ctForm'),st=document.getElementById('ctStatus');if(!f)return;
+function t(en,ar){return document.documentElement.lang==='ar'?ar:en}
+f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('button');b.disabled=true;st.textContent=t('Sending…','جاري الإرسال…');
+fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+.then(function(r){if(!r.ok)throw 0;f.reset();st.textContent=t("Thank you. Your message is in, and we'll get back to you soon.",'شكراً لك، وصلتنا رسالتك ونرد عليك قريب.')})
+.catch(function(){st.textContent=t('Something went wrong. Please email us at hala@alphadiwan.com.','صار خطأ. راسلنا على hala@alphadiwan.com')})
+.finally(function(){b.disabled=false})});})();
 </script></body>
 </html>
