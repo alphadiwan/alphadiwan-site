@@ -486,8 +486,8 @@ section.debate,section.channels,section.rail-sec,section.about{padding-top:110px
 .room-lab b{font-family:var(--serif);font-size:1.3rem;font-weight:500;color:var(--gold-mute)}
 .deb-note{display:flex;align-items:center;justify-content:center;gap:10px}
 .finjan{width:22px;height:18px;flex:none;fill:none;stroke:var(--gold-mute);stroke-width:2;stroke-linecap:round;transform-origin:50% 90%}
-.finjan.shake{animation:finjan 1s var(--ease)}
-@keyframes finjan{15%{transform:rotate(-14deg)}30%{transform:rotate(12deg)}45%{transform:rotate(-10deg)}60%{transform:rotate(8deg)}75%{transform:rotate(-4deg)}100%{transform:none}}
+.finjan.shake{animation:finjan 1.3s ease-in-out}
+@keyframes finjan{0%{transform:none}10%{transform:translateX(-5px) rotate(-16deg)}22%{transform:translateX(5px) rotate(16deg)}34%{transform:translateX(-5px) rotate(-14deg)}46%{transform:translateX(4px) rotate(12deg)}58%{transform:translateX(-3px) rotate(-9deg)}70%{transform:translateX(2px) rotate(6deg)}84%{transform:translateX(-1px) rotate(-3deg)}100%{transform:none}}
 .dusk{position:fixed;inset:0;z-index:60;pointer-events:none;mix-blend-mode:soft-light;background:linear-gradient(180deg,rgba(218,74,63,var(--dusk,.22)),rgba(255,120,60,0) 60%);transition:background .2s}
 .night{position:fixed;inset:0;z-index:59;pointer-events:none;background:rgba(5,4,10,var(--night,0))}
 @media (prefers-reduced-motion:reduce){.dusk,.night{display:none}}
@@ -504,7 +504,55 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
 
 </style>
 <style>:root{--gold:#C04A40;--gold-soft:#E8D5B5;--gold-mute:#9A322C}.gold-text{background-image:linear-gradient(100deg,rgb(205,180,142) 0%,rgb(242,229,204) 22%,rgb(226,203,164) 40%,rgb(247,236,216) 52%,rgb(205,180,142) 70%,rgb(232,213,181) 100%)!important}.btn:not(.btn-ghost){background:linear-gradient(135deg,rgb(184,67,58),rgb(142,42,38))!important;color:rgb(246,236,220)!important}.btn:not(.btn-ghost) svg{fill:rgb(246,236,220)!important}</style>
-</head>
+<style>
+.hero-def{margin-top:30px;max-width:540px;padding-inline-start:24px;border-inline-start:1px solid var(--gold);opacity:0;animation:fade 1s .7s forwards}
+.hd-word{font-family:var(--serif);font-style:italic;font-weight:300;font-size:2rem;line-height:1;color:var(--gold-soft);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.hd-ar{font-style:normal;font-family:var(--arabic);font-weight:300;font-size:.72em;color:var(--ivory-dim)}
+.hd-type{font-family:var(--sans);font-style:normal;font-size:.66rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-mute)}
+html[lang=ar] .hd-en{display:none} html[lang=ar] .hd-ar{font-size:1em;color:var(--gold-soft)} html[lang=ar] .hd-type{letter-spacing:0;font-size:.85rem}
+.hero-def .senses{margin-top:6px;font-size:.98rem;max-width:46ch}
+.hero-def .senses li{margin-top:7px}
+.hd-line{margin:16px 0 0;color:var(--ivory);font-size:1.04rem;max-width:46ch}
+@media(max-width:900px){.hero-def{text-align:start;margin-left:auto;margin-right:auto}}
+</style><style>
+.hero-cta .btn{gap:12px;padding-inline-start:14px}
+.hero-cta .ic{position:relative;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:0 0 28px}
+.hero-cta .ic.play{background:rgba(246,236,220,.18)}
+.hero-cta .ic.play::before{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid rgba(246,236,220,.55);animation:ring 2.6s var(--ease) infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.7}70%,100%{transform:scale(1.75);opacity:0}}
+.hero-cta .ic.play svg{width:12px;height:12px;margin-inline-start:2px;transition:transform .35s var(--ease)}
+.hero-cta .btn:hover .ic.play svg{transform:scale(1.18)}
+.hero-cta .ic.mail{box-shadow:inset 0 0 0 1px rgba(184,67,58,.55)}
+.hero-cta .ic.mail svg{width:14px;height:14px;fill:none;stroke:var(--gold-soft);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round;overflow:visible}
+.hero-cta .ic.mail .flap{transform-origin:12px 7.5px;transition:transform .45s var(--ease)}
+.hero-cta .btn:hover .ic.mail .flap{transform:translateY(2px) scaleY(.6)}
+.hero-cta .arr{display:inline-block;width:0;opacity:0;overflow:hidden;transform:translateX(-6px);transition:width .35s var(--ease),opacity .35s,transform .35s var(--ease);font-size:.95rem;letter-spacing:0}
+.hero-cta .btn:hover .arr{width:14px;opacity:1;transform:none}
+html[dir=rtl] .hero-cta .arr{transform:translateX(6px) scaleX(-1)} html[dir=rtl] .hero-cta .btn:hover .arr{transform:scaleX(-1)}
+.hero-cta .btn:not(.btn-ghost)::after{animation:sheen 6s 2.5s ease-in-out infinite}
+@keyframes sheen{0%,82%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@media (prefers-reduced-motion:reduce){.hero-cta .ic.play::before,.hero-cta .btn::after{animation:none}}
+</style><style>
+.teaser{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:30px;font-size:.92rem;color:var(--ivory-dim);pointer-events:auto;opacity:0;animation:fade 1s 1.4s forwards;padding:10px 4px;border-bottom:1px solid rgba(184,67,58,.25);transition:border-color .3s,color .3s}
+.teaser:hover{border-color:var(--gold);color:var(--ivory)}
+.teaser .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(192,74,64,.6);animation:live 2.2s infinite}
+@keyframes live{0%{box-shadow:0 0 0 0 rgba(192,74,64,.55)}70%{box-shadow:0 0 0 9px rgba(192,74,64,0)}100%{box-shadow:0 0 0 0 rgba(192,74,64,0)}}
+.teaser .t-k{font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+html[lang=ar] .teaser .t-k{letter-spacing:0;font-size:.85rem}
+.teaser .t-q{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--ivory)}
+html[lang=ar] .teaser .t-q{font-style:normal;font-size:1rem}
+.teaser .t-go{font-weight:600;color:var(--gold-soft)}
+@media(max-width:900px){.teaser{justify-content:center}}
+</style><style>
+.teaser .t-fj{width:20px;height:auto;flex:none;fill:none;stroke:var(--gold);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;overflow:visible;transform-origin:50% 95%}
+.teaser .shake-loop{animation:fjloop 3.6s ease-in-out infinite}
+@keyframes fjloop{0%,70%,100%{transform:rotate(0)}74%{transform:rotate(-14deg)}78%{transform:rotate(12deg)}82%{transform:rotate(-9deg)}86%{transform:rotate(6deg)}90%{transform:rotate(0)}}
+.teaser .steam .st{stroke:var(--gold-soft);stroke-width:1.6;opacity:0;animation:steam 3s ease-in-out infinite}
+.teaser .steam .s2{animation-delay:1.4s}
+@keyframes steam{0%{opacity:0;transform:translateY(4px)}35%{opacity:.85}100%{opacity:0;transform:translateY(-6px)}}
+.teaser:hover .shake-loop{animation-duration:1.2s}
+@media (prefers-reduced-motion:reduce){.teaser .t-fj,.teaser .st{animation:none}}
+</style></head>
 <body>
 <div class="dusk" aria-hidden="true"></div><div class="night" aria-hidden="true"></div>
 <div class="progress" id="progress"></div>
@@ -533,37 +581,19 @@ html[lang=ar] .marquee .tk i{font-family:var(--arabic);font-size:13.5px;letter-s
     <div class="hero-sadu" aria-hidden="true"></div><div class="hero-sadu-h" aria-hidden="true"></div>
     <div class="wrap hero-inner">
       <h1><span class="line"><span data-i18n="h1a">Marhaba!</span></span><span class="line"><span><em class="gold-text" data-i18n="h1b">Let's talk business.</em></span></span></h1>
-      <p class="sub" data-i18n="heroSub">A modern forum for investing, deals and business.</p>
+      <div class="hero-def"><div class="hd-word"><span class="hd-en">dī·wān</span><span class="hd-ar">ديوان</span><span class="hd-type" data-i18n="defType">noun</span></div><div data-i18n="defP"><ol class="senses"><li>A place to gather, talk and exchange ideas.</li><li>A register of accounts and financial data.</li><li>A collected body of work or archive.</li></ol></div><p class="hd-line" data-i18n="heroLine">Alpha Diwan brings all three together on one digital platform to learn and talk about business, markets, deals and investing.</p></div>
       <div class="hero-cta">
-        <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-i18n="ctaWatch">Watch our explainers</span></a>
-        <a class="btn btn-ghost mag" href="#news" data-to="news" data-i18n="ctaNews">Join the newsletter</a>
-        <div class="badge" aria-hidden="true">
-      <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
-        <text textLength="480" lengthAdjust="spacing"><textPath href="#circ" textLength="480" lengthAdjust="spacing"><tspan data-i18n="badge">MARKETS · DEALS · BUSINESS · </tspan></textPath></text></svg>
-      <svg class="mark" viewBox="0 0 1503.0 1615.0"><use href="#ad-mark"/></svg>
-    </div>
+        <a class="btn mag" href="https://www.youtube.com/@alphadiwan" target="_blank" rel="noopener"><span class="ic play"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span><span data-i18n="ctaWatch">Watch our explainers</span></a>
+        <a class="btn btn-ghost mag" href="#news" data-to="news"><span class="ic mail"><svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path class="flap" d="m4.5 7.5 7.5 5.5 7.5-5.5"/></svg></span><span data-i18n="ctaNews">Join the newsletter</span><span class="arr" aria-hidden="true">→</span></a>
       </div>
-      <div class="hero-row">
-        <a class="hr-card" href="#debate" data-to="debate"><span class="hr-k"><i class="dot"></i><span data-i18n="otK">Current topic</span></span><span class="hr-q" data-i18n="dQ">Over the next ten years, which would you rather own?</span><span class="split"><b class="sa"></b></span><span class="hr-meta"><span><span data-i18n="dA">Real estate</span></span><span><span data-i18n="dB">Public equities</span></span></span></a>
-        <a class="hr-card hr-ep" href="#episodes" data-to="episodes"><span class="hr-thumb"><span class="big">D</span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="hr-body"><span class="hr-k"><i class="dot live"></i><span data-i18n="upK">Up next · EP 01</span></span><span class="hr-t" data-i18n="e1">Dubai property: 2008 vs today</span><span class="hr-m" data-i18n="upM">12 min · Premieres this month</span></span></a>
-      </div>
+    <a class="teaser" href="#debate" data-to="debate"><svg class="t-fj steam" viewBox="0 -14 40 44"><path class="st s1" d="M15 0c-3-4 3-6 0-11"/><path class="st s2" d="M22 0c-3-4 3-6 0-11"/><path d="M6 6h28l-3.2 15.5A7 7 0 0 1 24 27h-8a7 7 0 0 1-6.8-5.5z"/></svg><span class="t-k" data-i18n="teaserK">Current topic</span> <span class="t-q" id="teaserQ"></span> <span class="t-go" data-i18n="teaserGo">Cast your vote ↓</span></a>
     </div>
     <div class="scroll-cue"><i></i></div>
   </section>
 
   <div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
 
-  <!-- CONCEPT -->
-  <section class="statement">
-    <div class="wrap def-grid">
-      <div class="def reveal">
-        <div class="def-word">dī·wān <span class="ar">ديوان</span></div>
-        <div class="def-type" data-i18n="defType">noun</div>
-        <div data-i18n="defP"><ol class="senses"><li>A place to gather, talk and trade news. A majlis.</li><li>A register of accounts. The first diwans kept the books on revenue and pay.</li><li>A collected body of work, as in a poet's diwan.</li></ol></div>
-      </div>
-      <p id="lit" data-i18n="lit"><span class="g">Alpha Diwan brings all three together</span> under one digital platform: a place to talk markets and business, a record of the numbers worth knowing, and a growing collection of explainers, conversations and tools.</p>
-    </div>
-  </section>
+  
 
   <!-- DEBATE (light) -->
   <section id="debate" class="debate">
@@ -697,11 +727,11 @@ const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 
 // ===== i18n =====
 const AR = {
-  nav1:'المحتوى', nav2:'الموضوع الحالي', nav3:'القادم', nav4:'عنّا', navCta:'اشترك', bg1:'د', bg2:'٪', bg3:'م', bg4:'ص', bg5:'ا', bg6:'د', sn1:'١', sn2:'٢', sn3:'٣', sn4:'٤',
+  nav1:'المحتوى', nav2:'الموضوع الحالي', nav3:'القادم', nav4:'عنّا', navCta:'اشترك', heroLine:'ألفا ديوان يجمع المعاني الثلاثة في منصة رقمية واحدة نتعلّم فيها ونسولف عن البزنس والأسواق والصفقات والاستثمار.', teaserK:'الموضوع الحالي', teaserGo:'صوّت ↓',  bg1:'د', bg2:'٪', bg3:'م', bg4:'ص', bg5:'ا', bg6:'د', sn1:'١', sn2:'٢', sn3:'٣', sn4:'٤',
   heroK:'الاستثمار · الصفقات · الاستراتيجية', h1a:'مرحبا!', h1b:'خلّ نتكلم عن البزنس.',
   heroSub:'منصة حديثة للنقاش في الاستثمار والصفقات والأعمال.',
   ctaWatch:'شاهد الشروحات', ctaNews:'اشترك في النشرة', ctaWatch2:'شاهد الشروحات', ctaNews2:'اشترك في النشرة',
-  defType:'اسم', defP:'<ol class="senses"><li>مكان يجتمع فيه الناس للسوالف وتبادل العلوم والآراء، وهو المجلس.</li><li>سجل الحسابات. أول الدواوين كانت تمسك دفاتر الإيرادات والرواتب.</li><li>مجموعة أعمال في مجلّد واحد، مثل ديوان الشاعر.</li></ol>',
+  defType:'اسم', defP:'<ol class="senses"><li>مكان يجتمع فيه الناس للسوالف وتبادل الأفكار.</li><li>سجل للحسابات والبيانات المالية.</li><li>مجموعة أعمال أو أرشيف.</li></ol>',
   lit:'<span class="g">ألفا ديوان يجمع المعاني الثلاثة</span> في منصة رقمية واحدة: مجلس نسولف فيه عن الأسواق والبزنس، وسجل للأرقام المهمّة، ومجموعة من الشروحات والحوارات والأدوات.',
   fK:'المحتوى', fH:'اختار <em class="gold-text">مقعدك.</em>', fP:'شوف الشروحات، أو اسمع السوالف الطويلة، أو اقرأ الرسائل مع قهوة الصبح. على راحتك.',
   sYt:'يوتيوب', ytH:'الشروحات', ytP:'موضوع واحد في كل حلقة، نشرحه ببساطة في حوالي ١٢ دقيقة. أسواق وصفقات والأفكار اللي وراها.', ytGo:'اشترك على يوتيوب',
@@ -788,6 +818,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 // scroll-lit statement
 const lit = document.getElementById('lit'); let words = [];
 function splitLit(){
+  if (!lit) return;
   const tmp = document.createElement('div'); tmp.innerHTML = lang === 'ar' ? AR.lit : EN.lit;
   const out = [];
   tmp.childNodes.forEach(n => {
@@ -797,7 +828,7 @@ function splitLit(){
   lit.innerHTML = out.join(''); words = [...lit.querySelectorAll('.w')];
 }
 function lightWords(){
-  if (!words.length) return;
+  if (!lit || !words.length) return;
   const r = lit.getBoundingClientRect();
   const p = Math.min(1, Math.max(0, (innerHeight * .85 - r.top) / (r.height + innerHeight * .25)));
   const n = Math.round(p * words.length);
@@ -1057,7 +1088,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
       const tw = sky && p.home ? .35 + .65 * Math.pow((Math.sin(t / (500 / p.sp) + p.ph) + 1) / 2, 2) : .65 + Math.sin(t / 600 + p.ph) * .35;
       ctx.globalAlpha = p.a * (p.home ? tw : tw * .8);
       ctx.fillStyle = p.home && p.ph > 3 ? 'rgb(236,222,196)' : 'rgb(196,84,72)';
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
+      const q = Math.max(1.3, p.r * 1.5); ctx.beginPath(); ctx.moveTo(p.x, p.y - q); ctx.lineTo(p.x + q, p.y); ctx.lineTo(p.x, p.y + q); ctx.lineTo(p.x - q, p.y); ctx.closePath(); ctx.fill();
     }
     ctx.globalAlpha = 1;
     if (!reduce) raf = requestAnimationFrame(draw);
@@ -1082,5 +1113,9 @@ if (location.hash === '#ar') saved = 'ar';
 if (saved === 'ar') setLang('ar'); else { buildMarquee(); splitLit(); onScroll(); }
 </script>
 
-</body>
+<script>
+(function(){function upd(){var ar=document.documentElement.lang==='ar',D=ar?AR:EN,a=(D.dA||'').replace(/<[^>]+>/g,''),b=(D.dB||'').replace(/<[^>]+>/g,'');
+if(!ar)b=b.charAt(0).toLowerCase()+b.slice(1);document.getElementById('teaserQ').textContent=ar?(a+' ولا '+b+'؟'):(a+' or '+b+'?');}
+addEventListener('langchange',upd);setTimeout(upd,50);})();
+</script></body>
 </html>
