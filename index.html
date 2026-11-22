@@ -622,11 +622,11 @@ html[dir=rtl] .ct-form select{background-position:left 16px center}
       <div class="deb-head">
         <h2 class="h2 reveal d1" data-i18n="dH">This week's <em>debate.</em></h2>
       </div>
-      <div class="deb-q reveal d2" data-i18n="dQ">Over the next ten years, which would you rather own?</div>
+      <div class="deb-q reveal d2" data-i18n="dQ">For the long run, how would you rather invest?</div>
       <div class="deb-opts reveal d3" id="debOpts">
-        <button type="button" class="opt" data-v="a"><span class="opt-k">A</span><span class="opt-t" data-i18n="dA">Real estate</span><span class="opt-case" data-i18n="dAc">Something you can see and touch, rent coming in every month, and the option to borrow against it.</span><span class="opt-res" aria-live="polite"><span class="opt-bar"><i></i></span><b class="opt-pct">0%</b></span></button>
+        <button type="button" class="opt" data-v="a"><span class="opt-k">A</span><span class="opt-t" data-i18n="dA">Index funds</span><span class="opt-case" data-i18n="dAc">A slice of the whole market in one go, usually with low fees and little homework.</span><span class="opt-res" aria-live="polite"><span class="opt-bar"><i></i></span><b class="opt-pct">0%</b></span></button>
         <span class="vs" data-i18n="vs">or</span>
-        <button type="button" class="opt" data-v="b"><span class="opt-k">B</span><span class="opt-t" data-i18n="dB">Public equities</span><span class="opt-case" data-i18n="dBc">Easy to buy and sell, spread across many companies, and quietly growing over the years.</span><span class="opt-res" aria-live="polite"><span class="opt-bar"><i></i></span><b class="opt-pct">0%</b></span></button>
+        <button type="button" class="opt" data-v="b"><span class="opt-k">B</span><span class="opt-t" data-i18n="dB">Single stocks</span><span class="opt-case" data-i18n="dBc">You back companies you understand, and the results rest on your own research.</span><span class="opt-res" aria-live="polite"><span class="opt-bar"><i></i></span><b class="opt-pct">0%</b></span></button>
       </div>
       <p class="deb-note reveal d4" id="debNote"><svg class="finjan" viewBox="0 2 40 28" aria-hidden="true"><path d="M6 6h28l-3.2 15.5A7 7 0 0 1 24 27h-8a7 7 0 0 1-6.8-5.5z"/></svg><span data-i18n="dNote">Everyone gets a vote. Pick a side and see where the room leans.</span></p>
     </div>
@@ -791,8 +791,8 @@ const AR = {
   sNews:'دورية', newsH:'الرسائل', newsP:'اشترك واستلم رسائلنا الدورية: صفقة الكل يتكلم عنها، ورسم بياني يستاهل تحفظه، وفكرة تفكّر فيها.',
   sTpl:'قريباً', tplH:'الأدوات', tplP:'جداول وعروض تقديمية ونماذج مالية للشغل في المالية والاستثمار، مصمّمة للشباب في بداية مشوارهم. ومعها شروحات عملية، مثل بناء نموذج التدفقات النقدية المخصومة خطوة بخطوة، أو تمارين على معدل العائد الداخلي.', tplGo:'نبّهني عند الإطلاق',
   socH:'التواصل الاجتماعي', socP:'لقطات سريعة طول الأسبوع، لما يكون عندك دقيقة.',
-  dK:'النقاش الحالي', dH:'نقاش <em>هالأسبوع.</em>', dQ:'خلال العشر سنين الجاية، وش تفضّل تملك؟',
-  dA:'العقار', dAc:'شي تشوفه وتلمسه، وإيجار يدخل كل شهر، وتقدر تقترض بضمانه.', dB:'الأسهم المدرجة', dBc:'سهلة البيع والشراء، موزّعة على شركات كثيرة، وتكبر بهدوء مع السنين.',
+  dK:'النقاش الحالي', dH:'نقاش <em>هالأسبوع.</em>', dQ:'على المدى الطويل، كيف تفضّل تستثمر فلوسك؟',
+  dA:'صناديق المؤشرات', dAc:'تملك جزء من السوق كله مرة وحدة، وغالباً برسوم قليلة وبحث أقل.', dB:'الأسهم الفردية', dBc:'تختار شركات تفهمها بنفسك، ونتيجتك تعتمد على بحثك وقرارك.',
   vs:'ولا', dNote:'الكل له صوت. اختار طرف وشوف وين يميل المجلس.',
   eK:'القادم', eH:'المواضيع <em class="gold-text">اللي نناقشها.</em>',
   tMkt:'الأسواق', tFund:'أساسيات', tExp:'شرح', tExp2:'شرح', tIf:'تمويل إسلامي', tPod:'الديوانية · بودكاست',
@@ -818,8 +818,8 @@ const MARQ = [
   ['VAL','Valuation','التقييم']
 ];
 const NOTES = {
-  en:{none:'Everyone gets a vote. Pick a side and see where the room leans.', a:'You picked real estate. Good arguments on both sides, and we dig into it in our next newsletter.', b:'You picked public equities. Good arguments on both sides, and we dig into it in our next newsletter.'},
-  ar:{none:'الكل له صوت. اختار طرف وشوف وين يميل المجلس.', a:'اخترت العقار. الطرفين عندهم حجّة، ونتعمّق فيها في رسالتنا الجاية.', b:'اخترت الأسهم المدرجة. الطرفين عندهم حجّة، ونتعمّق فيها في رسالتنا الجاية.'}
+  en:{none:'Everyone gets a vote. Pick a side and see where the room leans.', a:'You picked index funds. Good arguments on both sides, and we dig into it in our next newsletter.', b:'You picked single stocks. Good arguments on both sides, and we dig into it in our next newsletter.'},
+  ar:{none:'الكل له صوت. اختار طرف وشوف وين يميل المجلس.', a:'اخترت صناديق المؤشرات. الطرفين عندهم حجّة، ونتعمّق فيها في رسالتنا الجاية.', b:'اخترت الأسهم الفردية. الطرفين عندهم حجّة، ونتعمّق فيها في رسالتنا الجاية.'}
 };
 const EN = {};
 document.querySelectorAll('[data-i18n]').forEach(el => EN[el.dataset.i18n] = el.innerHTML);
